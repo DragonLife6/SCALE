@@ -8,6 +8,7 @@ public class EnemyManager : MonoBehaviour
     public int maxEnemies = 1;
     public float spawnDistance = 20.0f;
     public float spawnInterval = 1.0f;
+    public float maxDistance = 20.0f;
 
     private Transform player;
     private List<Transform> enemies = new List<Transform>();
@@ -16,6 +17,25 @@ public class EnemyManager : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         InvokeRepeating("SpawnEnemies", 0, spawnInterval);
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (GetDistance(enemies[i]) > maxDistance)
+            {
+                Destroy(enemies[i].gameObject);
+                SpawnEnemy();
+            }
+        }
+    }
+
+    void SpawnEnemy()
+    {
+        Vector3 spawnPosition = GetRandomSpawnPosition();
+        Transform newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).transform;
+        enemies.Add(newEnemy);
     }
 
     void SpawnEnemies()

@@ -44,9 +44,14 @@ public class EnemyMovement : MonoBehaviour
 
             if (deathOnCollision)
             {
-                enemyManager.DeleteEnemy(transform);
                 Destroy(gameObject);
             }
         }
+    }
+
+
+    private void OnDestroy()
+    {
+        enemyManager.DeleteEnemy(transform);
     }
 }
