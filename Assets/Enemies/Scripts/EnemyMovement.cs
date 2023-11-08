@@ -7,12 +7,14 @@ public class EnemyMovement : MonoBehaviour
     public float moveSpeed = 3.0f;
     public float damage = 10f;
     public bool deathOnCollision = false;
+    EnemyManager enemyManager;
 
     private Transform player;
 
     void Start()
     {
         player = GameObject.Find("Player").transform;
+        enemyManager = GameObject.Find("Enemy_manager").GetComponent<EnemyManager>();
     }
 
     void Update()
@@ -42,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
             if (deathOnCollision)
             {
+                enemyManager.DeleteEnemy(transform);
                 Destroy(gameObject);
             }
         }

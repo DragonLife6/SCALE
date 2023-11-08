@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
     public float spawnInterval = 1.0f;
 
     private Transform player;
+    private List<Transform> enemies = new List<Transform>();
 
     void Start()
     {
@@ -22,7 +23,8 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < maxEnemies; i++)
         {
             Vector3 spawnPosition = GetRandomSpawnPosition();
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            Transform newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).transform;
+            enemies.Add(newEnemy);
         }
     }
 
@@ -34,5 +36,43 @@ public class EnemyManager : MonoBehaviour
         Vector2 randomOffset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * spawnDistance;
         Vector3 spawnPosition = playerPosition + new Vector3(randomOffset.x, randomOffset.y, 0);
         return spawnPosition;
+    }
+
+    public void DeleteEnemy(Transform enemy)
+    {
+        enemies.Remove(enemy);
+    }
+
+    public List<Transform> GetClossestEnemies()
+    {
+        SortList();
+        return enemies;
+    }
+
+    void SortList()
+    {
+        int minId;
+        int startLength = enemies.Count;
+        List<Transform> newList = new List<Transform>();
+        for (int i = 0; i < startLength; i++)
+        {
+            minId = 0;
+            for (int j = 1; j < enemies.Count; j++)
+            {
+                if (GetDistance(enemies[j]) < GetDistance(enemies[minId])) {
+                    minId = j;
+                }
+            }
+
+            newList.Add(enemies[minId]);
+            enemies.Remove(enemies[minId]);
+        }
+
+        enemies = newList;
+    }
+
+    float GetDistance(Transform transform)
+    {
+        return Vector3.Distance(player.position, transform.position);
     }
 }

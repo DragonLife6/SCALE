@@ -21,7 +21,7 @@ public class BackgroundScript : MonoBehaviour
         {
             int x = (i % 3 - 1) * imageSpacing;
             int y = (i / 3 - 1) * imageSpacing;
-            platforms[i] = Instantiate(getPlatform(), new Vector3(x, y, 1), Quaternion.Euler(0, 0, 0));
+            platforms[i] = Instantiate(getPlatform(), new Vector3(x, y, 2), Quaternion.Euler(0, 0, 0));
         }
     }
 
@@ -40,7 +40,7 @@ public class BackgroundScript : MonoBehaviour
                 int x = (i % 3 - 1) * imageSpacing + n * imageSpacing;
                 int y = (i / 3 - 1) * imageSpacing + m * imageSpacing;
                 Destroy(platforms[i]);
-                platforms[i] = Instantiate(getPlatform(), new Vector3(x, y, 1), Quaternion.Euler(0, 0, 0));
+                platforms[i] = Instantiate(getPlatform(), new Vector3(x, y, 2), Quaternion.Euler(0, 0, 0));
             }
         }
     }
