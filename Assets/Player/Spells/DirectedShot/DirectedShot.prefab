@@ -54,6 +54,7 @@ MonoBehaviour:
   - Directed shot lvl 6
   - Directed shot lvl 7
   maxLevel: 7
+  abilityIcon: {fileID: 94259770, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
   projectile: {fileID: 8586998824991329508, guid: 1a8a1f9f0c87cc84a9c9f4a588b21926, type: 3}
   damage: 10
   speed: 5

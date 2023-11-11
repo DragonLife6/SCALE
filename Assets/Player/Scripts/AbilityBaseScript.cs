@@ -8,6 +8,7 @@ public abstract class AbilityBaseScript : MonoBehaviour
     [SerializeField] string abilityName;
     [SerializeField] string[] abilityDescriptions;
     [SerializeField] int maxLevel = 7;
+    [SerializeField] Sprite abilityIcon;
     protected int currentLevel;
 
 
@@ -35,6 +36,7 @@ public abstract class AbilityBaseScript : MonoBehaviour
     public string GetDescriptionOnCurrentLevel() { return abilityDescriptions[currentLevel]; }
     public string GetDescriptionOnLevel(int level) { return abilityDescriptions[level]; }
     public int GetCurrentLevel() { return currentLevel; }
+    public Sprite GetIcon() { return abilityIcon; }
 
     public abstract void UpdateAbility(int lvl);
     public abstract void Activate();

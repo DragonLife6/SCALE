@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 545598876786993909}
   - component: {fileID: 7158215107963225060}
   - component: {fileID: -1771406631507047542}
+  - component: {fileID: 826613791757898466}
   m_Layer: 0
   m_Name: Soul_Enemy
   m_TagString: Enemy
@@ -117,6 +118,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
+  soulPrefabs:
+  - {fileID: 7784239161389492242, guid: 6f90122d8a8dd22449713a1e41a8a5a0, type: 3}
+  - {fileID: 3596655940234113570, guid: 275be2ea9cfa27f40b0d25b54d5a413f, type: 3}
+  - {fileID: 36804843027193713, guid: a9325a515b81f0b4db55eb89a8e42212, type: 3}
 --- !u!70 &545598876786993909
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,3 +201,24 @@ MonoBehaviour:
   duration: 0.1
   flashMaterial: {fileID: 2100000, guid: 996dea73abe05e148ad1b76916ff7e40, type: 2}
   spriteDefault: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!95 &826613791757898466
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590809834452938239}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb6ef524bbe54a144ad9eb1a3fc62593, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

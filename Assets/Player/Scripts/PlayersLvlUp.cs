@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayersLvlUp : MonoBehaviour
 {
     int currentPlayerLevel;
+    [SerializeField] float expForLevel;
+    float currentExp;
 
     [SerializeField] GameObject[] passiveSpellPrefabs;
     [SerializeField] GameObject[] activeSpellPrefabs;
@@ -16,6 +18,7 @@ public class PlayersLvlUp : MonoBehaviour
 
     private void Start()
     {
+        currentExp = 0;
         abilitiesManagerScript = abilitiesManager.GetComponent<AbilitiesManagerScript>();
         currentPlayerLevel = 1;
         foreach (var spell in activeSpellPrefabs)
@@ -52,6 +55,17 @@ public class PlayersLvlUp : MonoBehaviour
             T temp = array[i];
             array[i] = array[j];
             array[j] = temp;
+        }
+    }
+
+    public void AddExpirience(float exp)
+    {
+        currentExp += exp;
+        if (currentExp >= expForLevel)
+        {
+            currentExp = 0;
+            expForLevel *= 1.2f;
+            PlayerLevelUp();
         }
     }
 }

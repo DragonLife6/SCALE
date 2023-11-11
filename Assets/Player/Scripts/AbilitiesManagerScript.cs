@@ -14,6 +14,7 @@ public class AbilitiesManagerScript : MonoBehaviour
     [SerializeField] TMP_Text[] variantsTitle;
     [SerializeField] TMP_Text[] variantsDescription;
     [SerializeField] TMP_Text[] variantsLevel;
+    [SerializeField] Image[] variantsImages;
 
     int[] skillsId = { 0, 0, 0 };
 
@@ -50,6 +51,7 @@ public class AbilitiesManagerScript : MonoBehaviour
             variantsTitle[i].SetText(spells[i].GetName());
             variantsLevel[i].SetText((spells[i].GetCurrentLevel() + 1).ToString());
             variantsDescription[i].SetText(spells[i].GetDescriptionOnCurrentLevel());
+            variantsImages[i].sprite = spells[i].GetIcon();
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50242e066d4ccfb44977c28514bffe62
+guid: a828d04024b881047a4d1b980ecf6a05
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_1_0
+      name: UI_Skill_Icon_Spin
       rect:
         serializedVersion: 2
-        x: 130
-        y: 699
-        width: 765
-        height: 233
+        x: 91
+        y: 2487
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b47500c79e95634d9b92425efebc0a2
-      internalID: -571003513
+      spriteID: 358ff77fbc211e04cae0ee5c89a1b3af
+      internalID: 876686840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_1_1
+      name: UI_Skill_Icon_Health
       rect:
         serializedVersion: 2
-        x: 130
-        y: 395
-        width: 768
-        height: 234
+        x: 642
+        y: 2508
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0622b31fc218e4845a5e2b9eed9d8a62
-      internalID: 1615416827
+      spriteID: 7c0f178b100d1f44bb0aee533d887c24
+      internalID: 448144390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_1_2
+      name: UI_Skill_Icon_Directed
       rect:
         serializedVersion: 2
-        x: 131
-        y: 93
-        width: 771
-        height: 233
+        x: 1184
+        y: 2512
+        width: 400
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ed4ef37ffee67e46b111a984dad9a4c
-      internalID: 1062802830
+      spriteID: 2ce38eb8c327e7d4fb6effab76ed5d04
+      internalID: 94259770
       vertices: []
       indices: 
       edges: []
@@ -196,9 +196,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_1_0: -571003513
-      UI_1_1: 1615416827
-      UI_1_2: 1062802830
+      UI_Skill_Icon_Directed: 94259770
+      UI_Skill_Icon_Health: 448144390
+      UI_Skill_Icon_Spin: 876686840
+      UI_Skill_Icons_1: 7892103
+      UI_Skill_Icons_2: 577485084
+      UI_Skill_Icons_3: 1784345497
+      UI_Skill_Icons_4: 203473564
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
