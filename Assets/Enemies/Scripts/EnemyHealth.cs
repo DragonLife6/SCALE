@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    private HitFlashScript flashScript;
     public float maxHealth = 20f;
     private float health;
 
@@ -11,12 +12,14 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        flashScript = GetComponent<HitFlashScript>();
     }
 
 
     public void GetDamage(float damage)
     {
         health -= damage;
+        flashScript.HitFlash();
         if (health <= 0)
         {
             Destroy(gameObject);

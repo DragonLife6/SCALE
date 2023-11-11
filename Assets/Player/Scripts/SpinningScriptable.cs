@@ -10,8 +10,6 @@ public class SpinningScriptable : AbilityBaseScript
     [SerializeField] float radius = 3f;
     [SerializeField] int projectilesNum = 1;
 
-    [SerializeField] GameObject target;
-
     List<GameObject> projectiles = new List<GameObject>();
 
     float newDamage;
@@ -43,11 +41,11 @@ public class SpinningScriptable : AbilityBaseScript
             projectiles.Add(newProjectile);
             projectiles[i].GetComponent<SpinningProjectile>().SetParameters(newDamage, 1f + 0.1f * projectilesNum);
 
-            float x = projectiles[i].transform.position.x + newRadius * Mathf.Sin((360 / projectilesNum) * i * Mathf.Deg2Rad);
-            float y = projectiles[i].transform.position.y + newRadius * Mathf.Cos((360 / projectilesNum) * i * Mathf.Deg2Rad);
+            float x = transform.position.x + newRadius * Mathf.Cos((360 / projectilesNum) * i * Mathf.Deg2Rad);
+            float y = transform.position.y + newRadius * Mathf.Sin((360 / projectilesNum) * i * Mathf.Deg2Rad);
 
             projectiles[i].transform.position = new Vector3(x, y, transform.position.z);
-            projectiles[i].transform.rotation = Quaternion.Euler(0, 0, 90 + (360 / projectilesNum) * i);
+            projectiles[i].transform.rotation = Quaternion.Euler(0, 0, (360 / projectilesNum) * i);
         }
     }
 
@@ -66,6 +64,7 @@ public class SpinningScriptable : AbilityBaseScript
         newDamage = damage;
         newSpeed = speed;
         newRadius = radius;
+        currentLevel = 1;
 
         SpawnObjects();
         StartCoroutine(RotateObjectCoroutine());

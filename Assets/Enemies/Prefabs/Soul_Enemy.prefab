@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3484548096974256642}
   - component: {fileID: 545598876786993909}
   - component: {fileID: 7158215107963225060}
+  - component: {fileID: -1771406631507047542}
   m_Layer: 0
   m_Name: Soul_Enemy
   m_TagString: Enemy
@@ -178,3 +179,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1771406631507047542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590809834452938239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1220df86a3eee546822ec7f4cd92af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialsToChange:
+  - {fileID: 2907726527167301951}
+  duration: 0.1
+  flashMaterial: {fileID: 2100000, guid: 996dea73abe05e148ad1b76916ff7e40, type: 2}
+  spriteDefault: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

@@ -45,8 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdfc83327d5704418ff9462734ed4ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: 
-  abilityDescription: 
+  abilityName: Spin
+  abilityDescriptions:
+  - Spin lbl 1
+  - Spin lbl 2
+  - Spin lbl 3
+  - Spin lbl 4
+  - Spin lbl 5
+  - Spin lbl 6
+  - Spin lbl 7
   maxLevel: 7
   projectile: {fileID: 8589018301590865847, guid: 2ba5a4c43cc5ba94987e70ec21bd3043, type: 3}
   damage: 5

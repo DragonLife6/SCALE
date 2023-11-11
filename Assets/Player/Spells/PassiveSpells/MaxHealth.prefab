@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4602153139871743304
+--- !u!1 &5851213565861101651
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7800453371658856470}
-  - component: {fileID: 2172629400964296412}
+  - component: {fileID: 3232481858296128450}
+  - component: {fileID: 7359083436017006698}
   m_Layer: 0
-  m_Name: DirectedShot
+  m_Name: MaxHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7800453371658856470
+--- !u!4 &3232481858296128450
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4602153139871743304}
+  m_GameObject: {fileID: 5851213565861101651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,30 +32,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2172629400964296412
+--- !u!114 &7359083436017006698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4602153139871743304}
+  m_GameObject: {fileID: 5851213565861101651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d5e0f26e6328049b107bc105a66945, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f7bb800863be3b44886b708363be4ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Directed
+  abilityName: Maximum Health
   abilityDescriptions:
-  - Directed shot lvl 1
-  - Directed shot lvl 2
-  - Directed shot lvl 3
-  - Directed shot lvl 4
-  - Directed shot lvl 5
-  - Directed shot lvl 6
-  - Directed shot lvl 7
-  maxLevel: 7
-  projectile: {fileID: 8586998824991329508, guid: 1a8a1f9f0c87cc84a9c9f4a588b21926, type: 3}
-  damage: 10
-  speed: 5
-  delay: 2
-  projectilesNum: 1
+  - Maximum Health = 100
+  - Maximum Health = 120
+  - Maximum Health = 150
+  - Maximum Health = 190
+  - Maximum Health = 250
+  maxLevel: 5
+  maxHealthOnLevel:
+  - 1
+  - 1.2
+  - 1.5
+  - 1.9
+  - 2.5

@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class AbilityBaseScript : MonoBehaviour
 {
     [SerializeField] string abilityName;
-    [SerializeField] string abilityDescription;
+    [SerializeField] string[] abilityDescriptions;
     [SerializeField] int maxLevel = 7;
     protected int currentLevel;
 
@@ -18,10 +18,23 @@ public abstract class AbilityBaseScript : MonoBehaviour
 
     public bool LevelUp()
     {
-        currentLevel++;
-        UpdateAbility(currentLevel);
+        if (currentLevel == 0)
+        {
+            Activate();
+        }
+        else
+        {
+            currentLevel++;
+            UpdateAbility(currentLevel);
+        }
+        
         return currentLevel < maxLevel;
     }
+
+    public string GetName() { return abilityName; }
+    public string GetDescriptionOnCurrentLevel() { return abilityDescriptions[currentLevel]; }
+    public string GetDescriptionOnLevel(int level) { return abilityDescriptions[level]; }
+    public int GetCurrentLevel() { return currentLevel; }
 
     public abstract void UpdateAbility(int lvl);
     public abstract void Activate();
