@@ -13,12 +13,16 @@ public class PlayersLvlUp : MonoBehaviour
     [SerializeField] GameObject[] activeSpellPrefabs;
     List<AbilityBaseScript> allSpells= new List<AbilityBaseScript>();
 
+    [SerializeField] UI_SliderScript ui_expirienceBar;
     [SerializeField] GameObject abilitiesManager;
     AbilitiesManagerScript abilitiesManagerScript;
+
 
     private void Start()
     {
         currentExp = 0;
+        ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
+
         abilitiesManagerScript = abilitiesManager.GetComponent<AbilitiesManagerScript>();
         currentPlayerLevel = 1;
         foreach (var spell in activeSpellPrefabs)
@@ -67,5 +71,7 @@ public class PlayersLvlUp : MonoBehaviour
             expForLevel *= 1.2f;
             PlayerLevelUp();
         }
+
+        ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
     }
 }
