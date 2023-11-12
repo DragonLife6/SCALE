@@ -5,12 +5,7 @@ using UnityEngine.UI;
 
 public class UI_SliderScript : MonoBehaviour
 {
-    Slider slider;
-
-    private void Start()
-    {
-         slider = GetComponent<Slider> (); 
-    }
+    [SerializeField] Slider slider;
 
     public void UpdateSlider(float value, float maxValue)
     {

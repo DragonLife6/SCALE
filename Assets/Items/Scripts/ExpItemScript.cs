@@ -8,13 +8,12 @@ public class ExpItemScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Нанесення пошкодження гравцю при контакті
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("ExpCollector"))
         {
-            PlayersLvlUp playerScript = other.GetComponent<PlayersLvlUp>();
-            if (playerScript != null)
+            ExpirienceCollectorScriptable expScript = other.GetComponent<ExpirienceCollectorScriptable>();
+            if (expScript != null)
             {
-                playerScript.AddExpirience(expGained);
+                expScript.AddExpirience(expGained);
                 Destroy(gameObject);
             }
         }
