@@ -51,6 +51,7 @@ MonoBehaviour:
   - Maximum Health = 150
   - Maximum Health = 190
   - Maximum Health = 250
+  - Maximum Health = 250
   maxLevel: 5
   abilityIcon: {fileID: 448144390, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
   maxHealthOnLevel:
@@ -58,4 +59,5 @@ MonoBehaviour:
   - 1.2
   - 1.5
   - 1.9
+  - 2.5
   - 2.5

@@ -39,13 +39,28 @@ public class PlayersLvlUp : MonoBehaviour
     {
         currentPlayerLevel++;
 
+        if (allSpells.Count < 3)
+        {
+            Debug.Log("Max Level");
+            return;
+        }
         AbilityBaseScript[] spells = { allSpells[0], allSpells[1], allSpells[2] };
         abilitiesManagerScript.ShowLevelUpMenu(spells);
     }
 
+    public void PlayerResetLevel(float procent)
+    {
+        currentExp = procent * expForLevel;
+        ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
+    }
+
     public void SkillLevelUp(int skillId)
     {
-        allSpells[skillId].LevelUp();
+        bool maxLevel = allSpells[skillId].LevelUp();
+        if(maxLevel)
+        {
+            allSpells.Remove(allSpells[skillId]);
+        }
         Shuffle(allSpells);
     }
 

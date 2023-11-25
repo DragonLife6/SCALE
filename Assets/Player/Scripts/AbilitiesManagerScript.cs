@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 public class AbilitiesManagerScript : MonoBehaviour
 {
     Transform target;
+    public float resetProcent = 0.3f;
     PlayersLvlUp playerLvlUpScript;
     [SerializeField] GameObject player;
 
@@ -15,8 +16,6 @@ public class AbilitiesManagerScript : MonoBehaviour
     [SerializeField] TMP_Text[] variantsDescription;
     [SerializeField] TMP_Text[] variantsLevel;
     [SerializeField] Image[] variantsImages;
-
-    int[] skillsId = { 0, 0, 0 };
 
     private void Start()
     {
@@ -37,6 +36,13 @@ public class AbilitiesManagerScript : MonoBehaviour
     {
         playerLvlUpScript.SkillLevelUp(buttonNum);
 
+        Time.timeScale = 1f;
+        levelUpCanvas.SetActive(false);
+    }
+    
+    public void ResetLevelClicked()
+    {
+        playerLvlUpScript.PlayerResetLevel(resetProcent);
         Time.timeScale = 1f;
         levelUpCanvas.SetActive(false);
     }

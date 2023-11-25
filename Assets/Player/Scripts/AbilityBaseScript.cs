@@ -26,10 +26,12 @@ public abstract class AbilityBaseScript : MonoBehaviour
         else
         {
             currentLevel++;
+            if(currentLevel > maxLevel)
+                return currentLevel > maxLevel;
             UpdateAbility(currentLevel);
         }
         
-        return currentLevel < maxLevel;
+        return currentLevel > maxLevel;
     }
 
     public string GetName() { return abilityName; }
