@@ -43,4 +43,9 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(0.1f, 0.1f, 1f);
         }
     }
+
+    public void AddMoveSpeed(float coef)
+    {
+        moveSpeed += coef;
+    }
 }

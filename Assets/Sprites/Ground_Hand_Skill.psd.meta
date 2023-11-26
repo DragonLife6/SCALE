@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: 943b03eac3944a24d90ce8ea6166f608
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 72
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hand_low
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 930
+        width: 250
+        height: 298
+      alignment: 9
+      pivot: {x: 0.9147559, y: 0.870159}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf059026f67b0d41b65be29e7ac757a
+      internalID: 1064319892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand_top
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 1180
+        width: 287
+        height: 173
+      alignment: 9
+      pivot: {x: 0.6460518, y: 0.41073343}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98955da860110bd4a871982cff13aa16
+      internalID: -397341114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hand_mid
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 883
+        width: 173
+        height: 224
+      alignment: 9
+      pivot: {x: 0.9208265, y: 0.8644088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 894f600cb85f1884ba996169633661ff
+      internalID: -1143342918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_hand_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 682
+        width: 163
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f2807cf0676c24db5c3a17cc7fc302
+      internalID: -1654821745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_hand_2
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 653
+        width: 404
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 387101604efbbbf44b3efb630b1749de
+      internalID: 429995655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_hand_6
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 98
+        width: 564
+        height: 629
+      alignment: 9
+      pivot: {x: 0.44604883, y: 0.13590884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67645b63dc3dbf4caa20d17c5e1ef0b
+      internalID: 116967600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_hand_7
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 98
+        width: 823
+        height: 719
+      alignment: 9
+      pivot: {x: 0.38519043, y: 0.110207036}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b271132311bf545a4e321be472aae5
+      internalID: -1033412334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_hand_4
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 111
+        width: 540
+        height: 394
+      alignment: 9
+      pivot: {x: 0.5415201, y: 0.2032767}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca7bf2961cc9cca4b85f7eac5c6151f6
+      internalID: -566415121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_hand_5
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 97
+        width: 601
+        height: 475
+      alignment: 9
+      pivot: {x: 0.4786822, y: 0.20330258}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2735cf5598e3e5740ab4b148d955390a
+      internalID: 2031991942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ground_hand_3
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 637
+        width: 592
+        height: 268
+      alignment: 9
+      pivot: {x: 0.54057825, y: 0.22511701}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a02f914695ca6845b73336f388939ab
+      internalID: 847256553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Ground_Hand_Skill_0: -168389103
+      Ground_Hand_Skill_10: 276360347
+      Ground_Hand_Skill_11: -382092556
+      Ground_Hand_Skill_14: 1149277006
+      Ground_Hand_Skill_15: -1504208056
+      Ground_Hand_Skill_16: -635369072
+      Ground_Hand_Skill_17: 767199264
+      Ground_Hand_Skill_18: -638054663
+      Ground_Hand_Skill_6: -1404150470
+      Ground_hand_1: -1654821745
+      Ground_hand_2: 429995655
+      Ground_hand_3: 847256553
+      Ground_hand_4: -566415121
+      Ground_hand_5: 2031991942
+      Ground_hand_6: 116967600
+      Ground_hand_7: -1033412334
+      Hand_low: 1064319892
+      Hand_mid: -1143342918
+      Hand_top: -397341114
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

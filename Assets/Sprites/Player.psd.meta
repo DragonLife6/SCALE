@@ -479,6 +479,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Baloon_1
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 1193
+        width: 139
+        height: 736
+      alignment: 9
+      pivot: {x: 0.43795052, y: 0.036465522}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8cbafa6ff932246bc699f36fb44974
+      internalID: 574400249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_2
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1193
+        width: 134
+        height: 735
+      alignment: 9
+      pivot: {x: 0.49999955, y: 0.03583486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2acc3b58d4083ef4da6c1562ccc8ba94
+      internalID: -165619934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -490,6 +532,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Baloon_1: 574400249
+      Baloon_2: -165619934
       Chest: 1305086936
       Head: -20647469
       L_Arm: -276311052
@@ -497,18 +541,18 @@ TextureImporter:
       L_Hand_Top: 1433407325
       L_Leg_Bot: 1980356482
       L_Leg_Top: 1980356482
-      Player_0: 1840665123
-      Player_1: -1615667099
-      Player_10: 1938842773
-      Player_2: 1344862085
-      Player_3: 2096169184
-      R_Arm: 1799331659
-      R_Hand: -1027703287
-      R_Leg_Bot: -1053222197
-      R_Leg_Top: -1350330113
-      Spell_1: 708659911
-      Spell_2: -1982158154
-      Spell_3: 215245801
+      Player_0: -1615667099
+      Player_1: 1938842773
+      Player_10: 1344862085
+      Player_2: 2096169184
+      Player_3: 1799331659
+      R_Arm: -1027703287
+      R_Hand: -1053222197
+      R_Leg_Bot: -1350330113
+      R_Leg_Top: 708659911
+      Spell_1: -1982158154
+      Spell_2: 215245801
+      Spell_3: 574400249
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

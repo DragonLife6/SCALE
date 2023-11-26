@@ -1990,9 +1990,11 @@ MonoBehaviour:
   passiveSpellPrefabs:
   - {fileID: 5851213565861101651, guid: 8aebf60b4e3a58047b773b644c17021b, type: 3}
   - {fileID: 333782247982305285, guid: 022dbb0a96cf72a4daae192d1392eaac, type: 3}
+  - {fileID: 2830797185454082455, guid: f8754676b1da0d641a0e454fb831fca8, type: 3}
   activeSpellPrefabs:
   - {fileID: 4602153139871743304, guid: c9a0513f8bc40ea49b79e4f2cd729cd3, type: 3}
   - {fileID: 5769279016363376999, guid: 9297550e1a100464695134c157d9da0a, type: 3}
+  - {fileID: 4634790712650053999, guid: 1574712be940df04c9db59b308232a14, type: 3}
   ui_expirienceBar: {fileID: 50589582}
   abilitiesManager: {fileID: 1486278009}
 --- !u!114 &649087563
@@ -2256,7 +2258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &850666429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3470,6 +3472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330545119}
   - component: {fileID: 1330545118}
+  - component: {fileID: 1330545120}
   m_Layer: 0
   m_Name: Baloon
   m_TagString: Untagged
@@ -3544,6 +3547,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1047077863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.059}
+--- !u!95 &1330545120
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330545117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69408a096f81b6f43b5893e27a8c19c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1385789073
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,7 +5139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1823259524
 MonoBehaviour:
   m_ObjectHideFlags: 0
