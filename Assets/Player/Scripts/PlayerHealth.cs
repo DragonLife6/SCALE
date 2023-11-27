@@ -8,16 +8,22 @@ public class PlayerHealth : MonoBehaviour
     private float health;
     private float currentMaxHealth;
     private HitFlashScript flashScript;
+    private Animator animator;
+    public bool isAlive = true;
+
+    [SerializeField] GameObject deathMenu;
 
     [SerializeField] UI_SliderScript ui_healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
+        deathMenu.SetActive(false);
         currentMaxHealth = maxHealth;
         health = currentMaxHealth;
         ui_healthBar.UpdateSlider(health, currentMaxHealth);
         flashScript = GetComponent<HitFlashScript>();
+        animator = GetComponent<Animator>();
     }
 
     
@@ -28,8 +34,18 @@ public class PlayerHealth : MonoBehaviour
 
         flashScript.HitFlash();
         if (health <= 0) {
-            Debug.Log("Death!");
+            isAlive = false;
+            animator.SetTrigger("Death");
+
+            deathMenu.SetActive(true);
+
+            Invoke(nameof(StopTime), 3.3f);
         }
+    }
+
+    private void StopTime()
+    {
+        Time.timeScale = 0f;
     }
 
     public void SetMaxHealth(float coef)

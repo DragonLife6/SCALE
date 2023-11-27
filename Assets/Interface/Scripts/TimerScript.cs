@@ -48,4 +48,9 @@ public class TimerScript : MonoBehaviour
 
         timerText.SetText(newText);
     }
+
+    public string GetCurrentTime()
+    {
+        return timerText.text;
+    }
 }
