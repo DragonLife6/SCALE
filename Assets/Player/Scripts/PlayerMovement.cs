@@ -8,11 +8,14 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5.0f;
     private Animator animator;
     private PlayerHealth playerHealth;
+    public AudioClip footstepsSound;
+    private AudioSource audioSource;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -29,9 +32,17 @@ public class PlayerMovement : MonoBehaviour
             if (movement != Vector3.zero)
             {
                 animator.SetFloat("speed", moveSpeed);
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(footstepsSound);
+                }
             }
             else
             {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
                 animator.SetFloat("speed", 0);
             }
 

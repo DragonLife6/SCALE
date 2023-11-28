@@ -39,11 +39,11 @@ public class TimerScript : MonoBehaviour
 
         if (minutes < 10)
         {
-            newText = "0" + minutes.ToString() + " ! " + secondText;
+            newText = "0" + minutes.ToString() + ":" + secondText;
         }
         else
         {
-            newText = minutes.ToString() + " ! " + secondText;
+            newText = minutes.ToString() + ":" + secondText;
         }
 
         timerText.SetText(newText);
