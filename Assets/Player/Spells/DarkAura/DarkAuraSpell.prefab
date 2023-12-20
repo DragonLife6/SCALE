@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5254107382430516929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883826335333405893}
+  - component: {fileID: 3086162950741993999}
+  m_Layer: 0
+  m_Name: DarkAuraSpell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1883826335333405893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254107382430516929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3086162950741993999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254107382430516929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91b6d042baaa6b4fa702bab327b6326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Dark Aura
+  abilityDescriptions:
+  - Summon dark entity to protect you
+  - Feed entity with part of your soul
+  - Feed entity with part of your soul
+  - Feed entity with part of your soul
+  - Feed entity with part of your soul
+  - Feed entity with part of your soul
+  maxLevel: 5
+  abilityIcon: {fileID: 0}
+  circlePrefab: {fileID: 5160803097813503439, guid: 7ea54cd52625e374b96d3211151e3b62, type: 3}
+  backgroundPrefab: {fileID: 8153243437402851390, guid: 359419c9b204c314f8a4e4ac44f88ac4, type: 3}
+  damage: 5
+  delay: 1
+  size: 1
+  bgSprites:
+  - {fileID: -99052551, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
+  - {fileID: 850439972, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
+  - {fileID: 1681614855, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
+  - {fileID: 1661016115, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
+  - {fileID: 1237477527, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}

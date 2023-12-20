@@ -194,7 +194,7 @@ TextureImporter:
         width: 163
         height: 46
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,7 +215,7 @@ TextureImporter:
         width: 404
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,6 +332,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SoulExplosion_1
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 2074
+        width: 288
+        height: 926
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f862e930e549f346bfbf6d350ab330b
+      internalID: 1760015046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoulExplosion_2
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 2070
+        width: 291
+        height: 923
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a38e0b99a5cda54c844c8c6b09c636c
+      internalID: -348394586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -343,7 +385,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ground_Hand_Skill_0: -168389103
       Ground_Hand_Skill_10: 276360347
       Ground_Hand_Skill_11: -382092556
       Ground_Hand_Skill_14: 1149277006
@@ -362,6 +403,8 @@ TextureImporter:
       Hand_low: 1064319892
       Hand_mid: -1143342918
       Hand_top: -397341114
+      SoulExplosion_1: -168389103
+      SoulExplosion_2: -348394586
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

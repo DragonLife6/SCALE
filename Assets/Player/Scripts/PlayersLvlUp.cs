@@ -52,6 +52,7 @@ public class PlayersLvlUp : MonoBehaviour
     {
         currentExp = procent * expForLevel;
         ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
+        Shuffle(allSpells);
     }
 
     public void SkillLevelUp(int skillId)

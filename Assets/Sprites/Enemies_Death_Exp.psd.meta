@@ -332,6 +332,153 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Enemies_Death_Exp_0
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1172
+        width: 267
+        height: 784
+      alignment: 9
+      pivot: {x: 0.4677301, y: 0.5495467}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191a089a2d7b4c943a5a0de70b2aeb5d
+      internalID: 69383632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_Death_Exp_1
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 1175
+        width: 341
+        height: 745
+      alignment: 9
+      pivot: {x: 0.59687173, y: 0.58054674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94933a61a0548d044992686747670d94
+      internalID: 1963200271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_Death_Exp_2
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 1184
+        width: 397
+        height: 495
+      alignment: 9
+      pivot: {x: 0.5389192, y: 0.84891397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fd5c21e00e677478246085916253dc
+      internalID: 986111687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_Death_Exp_3
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 1168
+        width: 484
+        height: 497
+      alignment: 9
+      pivot: {x: 0.53390324, y: 0.8749064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b3d043951de9124b9e880123c01fe0e
+      internalID: 1108874996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_Death_Exp_4
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 1154
+        width: 500
+        height: 443
+      alignment: 9
+      pivot: {x: 0.53126806, y: 1.0224593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2280ba8621ad8df45b470a3cc1164aca
+      internalID: 126709125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_Death_Exp_5
+      rect:
+        serializedVersion: 2
+        x: 2671
+        y: 1158
+        width: 329
+        height: 262
+      alignment: 9
+      pivot: {x: 0.48860627, y: 1.707794}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b83ef33f13881f40a7043997577f78a
+      internalID: -1469510203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_Death_Exp_6
+      rect:
+        serializedVersion: 2
+        x: 2696
+        y: 1427
+        width: 238
+        height: 238
+      alignment: 9
+      pivot: {x: 0.52803004, y: 1.6842277}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4043b61b89e15e14b9df2caf3be132f1
+      internalID: 724331976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -349,6 +496,13 @@ TextureImporter:
       Death_anim_4: 125614345
       Death_anim_5: 718434848
       Death_anim_6: 744973242
+      Enemies_Death_Exp_0: 69383632
+      Enemies_Death_Exp_1: 1963200271
+      Enemies_Death_Exp_2: 986111687
+      Enemies_Death_Exp_3: 1108874996
+      Enemies_Death_Exp_4: 126709125
+      Enemies_Death_Exp_5: -1469510203
+      Enemies_Death_Exp_6: 724331976
       Exp_1: 1995215197
       Exp_2: 1774522237
       Exp_3: 2144778577

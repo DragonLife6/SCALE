@@ -31,7 +31,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    void SpawnEnemy()
+    public void SpawnEnemy()
     {
         Vector3 spawnPosition = GetRandomSpawnPosition();
         Transform newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).transform;
