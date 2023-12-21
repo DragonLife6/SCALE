@@ -5,6 +5,12 @@ using UnityEngine;
 public class ExpItemScript : MonoBehaviour
 {
     [SerializeField] int expGained;
+    public float spawnTime;
+
+    private void Start()
+    {
+        spawnTime = Time.time;
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

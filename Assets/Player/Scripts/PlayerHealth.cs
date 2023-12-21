@@ -27,7 +27,18 @@ public class PlayerHealth : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    
+    public void GetHealing(float healAmount)
+    {
+        health += healAmount;
+
+        if (health > currentMaxHealth)
+        {
+            health = currentMaxHealth;
+        }
+
+        ui_healthBar.UpdateSlider(health, currentMaxHealth);
+    }
+
     public void GetDamage(float damage)
     {
         health -= damage;

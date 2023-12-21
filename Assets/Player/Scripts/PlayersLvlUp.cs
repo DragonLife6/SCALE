@@ -33,6 +33,8 @@ public class PlayersLvlUp : MonoBehaviour
         {
             allSpells.Add(Instantiate(spell, abilitiesManager.transform).GetComponent<AbilityBaseScript>());
         }
+
+        Shuffle(allSpells);
     }
 
      public void PlayerLevelUp()
