@@ -554,7 +554,7 @@ TextureImporter:
       Spell_2: 215245801
       Spell_3: 574400249
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

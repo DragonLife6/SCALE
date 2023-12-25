@@ -267,7 +267,7 @@ TextureImporter:
       Player_Death_5: -1537491187
       Player_Death_6: 1559410539
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

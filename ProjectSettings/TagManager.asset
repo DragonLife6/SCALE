@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - ExpCollector
   - ExpItem
+  - Undefined
+  - SpawnedObject
   layers:
   - Default
   - TransparentFX

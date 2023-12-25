@@ -200,7 +200,7 @@ TextureImporter:
       UI_1_1: 1615416827
       UI_1_2: 1062802830
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

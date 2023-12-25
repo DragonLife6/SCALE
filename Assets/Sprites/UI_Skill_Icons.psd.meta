@@ -126,12 +126,12 @@ TextureImporter:
       name: UI_Skill_Icon_Spin
       rect:
         serializedVersion: 2
-        x: 91
-        y: 2487
+        x: 37
+        y: 2555
         width: 400
         height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: UI_Skill_Icon_Health
       rect:
         serializedVersion: 2
-        x: 642
-        y: 2508
+        x: 554
+        y: 2562
         width: 400
         height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: UI_Skill_Icon_Directed
       rect:
         serializedVersion: 2
-        x: 1184
-        y: 2512
+        x: 1041
+        y: 2553
         width: 400
         height: 400
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,7 +204,7 @@ TextureImporter:
       UI_Skill_Icons_3: 1784345497
       UI_Skill_Icons_4: 203473564
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

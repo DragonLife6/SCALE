@@ -267,7 +267,7 @@ TextureImporter:
       UI_Health_FG: -775895879
       UI_Health_Fill: -1095731118
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

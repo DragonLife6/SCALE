@@ -508,7 +508,7 @@ TextureImporter:
       Exp_3: 2144778577
       Exp_4: -889326752
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

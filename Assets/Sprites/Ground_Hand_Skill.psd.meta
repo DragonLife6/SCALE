@@ -406,7 +406,7 @@ TextureImporter:
       SoulExplosion_1: -168389103
       SoulExplosion_2: -348394586
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 0
+  pSDRemoveMatte: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

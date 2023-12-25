@@ -7,6 +7,11 @@ public class SoulExplosionProjectile : MonoBehaviour
     float damage = 0f;
     [SerializeField] float moveSpeed = 7f;
 
+    private void Start()
+    {
+        Destroy(gameObject, 15f);
+    }
+
     private void Update()
     {
         Vector3 moveDirection = transform.rotation * Vector3.up;
