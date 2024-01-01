@@ -6,7 +6,10 @@ public class ExplosionItemScript : MonoBehaviour
 {
     [SerializeField] float explosionRadius = 5f;
     [SerializeField] float explosionDamage = 20f;
-    
+
+    FadingImageScript whiteFading;
+    Animator animator;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -18,9 +21,13 @@ public class ExplosionItemScript : MonoBehaviour
 
     void Explode()
     {
+        animator = GetComponent<Animator>();
+        whiteFading = GameObject.Find("FadingImage").GetComponent<FadingImageScript>();
+
         // Знаходження усіх ворогів у певному радіусі
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
-
+        animator.Play("explosionAnim");
+        whiteFading.FadeWhite(0.3f);
         // Нанесення пошкодження ворогам
         foreach (Collider2D collider in colliders)
         {
@@ -32,6 +39,6 @@ public class ExplosionItemScript : MonoBehaviour
         }
 
         //видалення об'єкта після вибуху
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 }
