@@ -11,10 +11,8 @@ public class DeathMenuScript : MonoBehaviour
 
     public void MainMenuPressed()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
         Time.timeScale = 1f;
-        SceneManager.LoadScene(currentSceneIndex);
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Start is called before the first frame update

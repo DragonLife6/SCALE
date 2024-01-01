@@ -17,6 +17,8 @@ public class PlayersLvlUp : MonoBehaviour
     [SerializeField] GameObject abilitiesManager;
     AbilitiesManagerScript abilitiesManagerScript;
 
+    private PlayerHealth playerHealth;
+
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class PlayersLvlUp : MonoBehaviour
         ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
 
         abilitiesManagerScript = abilitiesManager.GetComponent<AbilitiesManagerScript>();
+        playerHealth = GetComponent<PlayerHealth>();
         currentPlayerLevel = 1;
         foreach (var spell in activeSpellPrefabs)
         {
@@ -39,15 +42,18 @@ public class PlayersLvlUp : MonoBehaviour
 
      public void PlayerLevelUp()
     {
-        currentPlayerLevel++;
-
-        if (allSpells.Count < 3)
+        if (playerHealth.isAlive)
         {
-            Debug.Log("Max Level");
-            return;
+            currentPlayerLevel++;
+
+            if (allSpells.Count < 3)
+            {
+                Debug.Log("Max Level");
+                return;
+            }
+            AbilityBaseScript[] spells = { allSpells[0], allSpells[1], allSpells[2] };
+            abilitiesManagerScript.ShowLevelUpMenu(spells);
         }
-        AbilityBaseScript[] spells = { allSpells[0], allSpells[1], allSpells[2] };
-        abilitiesManagerScript.ShowLevelUpMenu(spells);
     }
 
     public void PlayerResetLevel(float procent)
