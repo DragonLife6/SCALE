@@ -8,6 +8,8 @@ public class PlayersLvlUp : MonoBehaviour
     int currentPlayerLevel;
     [SerializeField] float expForLevel;
     float currentExp;
+    float currentExpForLevel;
+    float expBonusProcent;
 
     [SerializeField] GameObject[] passiveSpellPrefabs;
     [SerializeField] GameObject[] activeSpellPrefabs;
@@ -19,11 +21,12 @@ public class PlayersLvlUp : MonoBehaviour
 
     private PlayerHealth playerHealth;
 
-
     private void Start()
     {
         currentExp = 0;
-        ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
+        currentExpForLevel = expForLevel;
+        expBonusProcent = 0;
+        ui_expirienceBar.UpdateSlider(currentExp, currentExpForLevel);
 
         abilitiesManagerScript = abilitiesManager.GetComponent<AbilitiesManagerScript>();
         playerHealth = GetComponent<PlayerHealth>();
@@ -58,8 +61,8 @@ public class PlayersLvlUp : MonoBehaviour
 
     public void PlayerResetLevel(float procent)
     {
-        currentExp = procent * expForLevel;
-        ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
+        currentExp = procent * currentExpForLevel;
+        ui_expirienceBar.UpdateSlider(currentExp, currentExpForLevel);
         Shuffle(allSpells);
     }
 
@@ -88,14 +91,27 @@ public class PlayersLvlUp : MonoBehaviour
 
     public void AddExpirience(float exp)
     {
-        currentExp += exp;
-        if (currentExp >= expForLevel)
+        currentExp += exp * (1 + expBonusProcent);
+        if (currentExp >= currentExpForLevel)
         {
-            currentExp = 0;
-            expForLevel *= 1.2f;
+            currentExp -= currentExpForLevel;
+            currentExpForLevel *= 1.15f;
+            if (currentExp < 0)
+            {
+                currentExp = 0;
+            }
+            else if (currentExp >= currentExpForLevel)
+            {
+                AddExpirience(0);
+            }
             PlayerLevelUp();
         }
 
-        ui_expirienceBar.UpdateSlider(currentExp, expForLevel);
+        ui_expirienceBar.UpdateSlider(currentExp, currentExpForLevel);
+    }
+
+    public void SetBonusExpirienceProcent(float procent)
+    {
+        expBonusProcent = procent;
     }
 }

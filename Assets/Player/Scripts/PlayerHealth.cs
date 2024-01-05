@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public bool isAlive = true;
 
     [SerializeField] GameObject deathMenu;
-    [SerializeField] Collider2D collider2D;
+    [SerializeField] Collider2D playerCollider2D;
 
     [SerializeField] UI_SliderScript ui_healthBar;
 
@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
             isAlive = false;
             animator.SetTrigger("Death");
 
-            collider2D.enabled = false;
+            playerCollider2D.enabled = false;
             deathMenu.SetActive(true);
 
             Invoke(nameof(StopTime), 3.3f);

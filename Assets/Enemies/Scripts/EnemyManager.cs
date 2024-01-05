@@ -31,6 +31,11 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void AddEnemy(Transform newEnemy)
+    {
+        enemies.Add(newEnemy);
+    }
+
     public void SpawnEnemy()
     {
         Vector3 spawnPosition = GetRandomSpawnPosition();

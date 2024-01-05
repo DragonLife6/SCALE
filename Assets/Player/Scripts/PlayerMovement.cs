@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] bool keyboardControl;
+    [SerializeField] MovementJoystick movementJoystick;
+
     public float moveSpeed = 5.0f;
     private Animator animator;
     private PlayerHealth playerHealth;
@@ -23,11 +26,21 @@ public class PlayerMovement : MonoBehaviour
         // Отримуємо вхід від клавіатури
         if (playerHealth.isAlive)
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
+            Vector3 movement;
+            float horizontalInput;
+            if (keyboardControl)
+            {
+                horizontalInput = Input.GetAxis("Horizontal");
+                float verticalInput = Input.GetAxis("Vertical");
 
-            // Обчислюємо вектор руху
-            Vector3 movement = new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime;
+                // Обчислюємо вектор руху
+                movement = new Vector3(horizontalInput, verticalInput, 0) * moveSpeed * Time.deltaTime;
+            }
+            else
+            {
+                movement = new Vector3(movementJoystick.joystickVec.x, movementJoystick.joystickVec.y, 0) * moveSpeed * Time.deltaTime;
+                horizontalInput = movementJoystick.joystickVec.x;
+            }
 
             if (movement != Vector3.zero)
             {

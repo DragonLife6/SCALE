@@ -9,8 +9,10 @@ public class EnemyHealth : MonoBehaviour
     private float health;
     Animator animator;
     [SerializeField] GameObject[] soulPrefabs;
+    [SerializeField] bool isRespawnable = true;
     EnemyManager enemyManager;
     public float lastDamageTime;
+    public bool spawnedWithManager = true;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +21,19 @@ public class EnemyHealth : MonoBehaviour
         health = maxHealth;
         flashScript = GetComponent<HitFlashScript>();
         animator = GetComponent<Animator>();
-
-        float randomRespawnDelay = Random.Range(100, 300) / 10f;
-
-        Invoke(nameof(Respawn), randomRespawnDelay);
         enemyManager = GameObject.Find("Enemy_manager").GetComponent<EnemyManager>();
+
+        if (!spawnedWithManager)
+        {
+            enemyManager.AddEnemy(transform);
+        }
+
+        if (isRespawnable)
+        {
+            float randomRespawnDelay = Random.Range(100, 300) / 10f;
+
+            Invoke(nameof(Respawn), randomRespawnDelay);
+        }
     }
 
 
