@@ -10,6 +10,9 @@ public class EnemyMovement : MonoBehaviour
     public float attackDistance = 1f;
     EnemyManager enemyManager;
     Vector3 initialScale;
+    Animator animator;
+
+    [SerializeField] Collider2D attackCollider;
 
     private Transform player;
 
@@ -17,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
     {
         initialScale = transform.localScale;
         player = GameObject.Find("Player").transform;
+        animator = GetComponent<Animator>();
         enemyManager = GameObject.Find("Enemy_manager").GetComponent<EnemyManager>();
     }
 
@@ -33,10 +37,12 @@ public class EnemyMovement : MonoBehaviour
             if (distanceToPlayer > attackDistance)
             {
                 transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
+                attackCollider.enabled = false;
             }
             else
             {
-                //animator.SetTrigger("Attack");
+                animator.SetTrigger("Attack");
+                attackCollider.enabled = true;
             }
         }
         if(moveDirection.x < 0 && transform.localScale.x > 0)
@@ -65,6 +71,8 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
+
+
 
 
     private void OnDestroy()

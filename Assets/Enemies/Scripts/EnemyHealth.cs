@@ -52,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
     {
         Destroy(gameObject, 0.4f);
         animator.Play("SoulEnemyRespawn");
-        enemyManager.SpawnEnemy();
+        enemyManager.SpawnEnemy(gameObject);
     }
 
     private void DeathAndDestroy()

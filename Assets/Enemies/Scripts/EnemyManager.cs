@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public int maxEnemies = 1;
+    [SerializeField] float[] newSpawnIntervals;
+    [SerializeField] int[] enemySpawnCounts;
+    [SerializeField] int[] minEnemyLevels;
+    [SerializeField] int[] maxEnemyLevels;
+
+    int currentDifficultyIndex = 0;
+    float nextParameterChangeTime = 0f;
+    [SerializeField] float changeInterval = 30f;
+
+    [SerializeField] GameObject[] enemyPrefabs;
+    int maxEnemies = 1;
+    float spawnInterval = 1.0f;
+
     public float spawnDistance = 20.0f;
-    public float spawnInterval = 1.0f;
     public float maxDistance = 20.0f;
+
+    int minEnemyLvl = 0;
+    int maxEnemyLvl = 1;
 
     private Transform player;
     private List<Transform> enemies = new List<Transform>();
@@ -16,17 +29,47 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        InvokeRepeating("SpawnEnemies", 0, spawnInterval);
+        InvokeRepeating("SpawnEnemies", 0.1f, spawnInterval);
+        nextParameterChangeTime = Time.time + changeInterval;
+
+        maxEnemies = enemySpawnCounts[currentDifficultyIndex];
+        spawnInterval = newSpawnIntervals[currentDifficultyIndex];
+        minEnemyLvl = minEnemyLevels[currentDifficultyIndex];
+        maxEnemyLvl = maxEnemyLevels[currentDifficultyIndex];
+    }
+
+    private void ChangeParameters()
+    {
+        currentDifficultyIndex++;
+
+        if (newSpawnIntervals.Length <= currentDifficultyIndex)
+        {
+            maxEnemies++;
+            spawnInterval *= 0.9f;
+        } else
+        {
+            maxEnemies = enemySpawnCounts[currentDifficultyIndex];
+            spawnInterval = newSpawnIntervals[currentDifficultyIndex];
+            minEnemyLvl = minEnemyLevels[currentDifficultyIndex];
+            maxEnemyLvl = maxEnemyLevels[currentDifficultyIndex];
+        }
     }
 
     private void Update()
     {
+        if (Time.time >= nextParameterChangeTime)
+        {
+            ChangeParameters();
+            nextParameterChangeTime = Time.time + changeInterval;
+        }
+
         for (int i = 0; i < enemies.Count; i++)
         {
             if (GetDistance(enemies[i]) > maxDistance)
             {
-                Destroy(enemies[i].gameObject);
-                SpawnEnemy();
+                GameObject enemyRef = enemies[i].gameObject;
+                Destroy(enemyRef);
+                SpawnEnemy(enemyRef);
             }
         }
     }
@@ -36,10 +79,10 @@ public class EnemyManager : MonoBehaviour
         enemies.Add(newEnemy);
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(GameObject enemyRef)
     {
         Vector3 spawnPosition = GetRandomSpawnPosition();
-        Transform newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).transform;
+        Transform newEnemy = Instantiate(enemyRef, spawnPosition, Quaternion.identity).transform;
         enemies.Add(newEnemy);
     }
 
@@ -47,8 +90,13 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < maxEnemies; i++)
         {
+            if(maxEnemyLvl > enemyPrefabs.Length || maxEnemyLvl < minEnemyLvl)
+            {
+                maxEnemyLvl = enemyPrefabs.Length;
+            }
+            int randomNum = Random.Range(minEnemyLvl, maxEnemyLvl);
             Vector3 spawnPosition = GetRandomSpawnPosition();
-            Transform newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity).transform;
+            Transform newEnemy = Instantiate(enemyPrefabs[randomNum], spawnPosition, Quaternion.identity).transform;
             enemies.Add(newEnemy);
         }
     }

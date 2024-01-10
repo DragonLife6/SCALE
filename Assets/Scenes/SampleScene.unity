@@ -1915,10 +1915,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e7d9623185e5d4e9d748a6e33a4aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6590809834452938239, guid: 41ddbeceb5bbd8c4399bc60ac0b90c17, type: 3}
-  maxEnemies: 0
+  newSpawnIntervals:
+  - 1
+  - 1
+  - 0.9
+  - 0.9
+  - 0.9
+  - 0.9
+  - 0.8
+  - 0.8
+  - 0.8
+  - 0.8
+  enemySpawnCounts: 01000000020000000200000003000000030000000400000002000000030000000400000004000000
+  minEnemyLevels: 00000000000000000000000000000000000000000000000001000000010000000100000001000000
+  maxEnemyLevels: 01000000010000000100000001000000020000000200000002000000020000000200000002000000
+  changeInterval: 30
+  enemyPrefabs:
+  - {fileID: 6590809834452938239, guid: 41ddbeceb5bbd8c4399bc60ac0b90c17, type: 3}
+  - {fileID: 6418126835555459100, guid: f2b364e42853a2b488c41f2d223dabc1, type: 3}
+  - {fileID: 6038936090371819489, guid: 3d55fb5f464d11446b169cb501da0a6f, type: 3}
   spawnDistance: 10
-  spawnInterval: 1
   maxDistance: 20
 --- !u!4 &479585309
 Transform:
@@ -2543,7 +2559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6d747f4a39dad40a6e454066eafbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10000
   isAlive: 1
   deathMenu: {fileID: 714580096}
   playerCollider2D: {fileID: 649087559}
@@ -3850,7 +3866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.030029297}
+  m_AnchoredPosition: {x: -0.057006836, y: 0.119140625}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1135170259
