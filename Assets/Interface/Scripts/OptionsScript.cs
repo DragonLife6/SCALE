@@ -15,11 +15,11 @@ public class OptionsScript : MonoBehaviour
     private void Start()
     {
         soundSliders[0].value = GetVolumeLevel("masterVolume");
-        soundLabels[0].text = Mathf.RoundToInt(((soundSliders[0].value + 80f) / 0.8f)).ToString() + " %";
+        soundLabels[0].text = Mathf.RoundToInt(((GetVolumeLevel("masterVolume") + 80f) / 0.8f)).ToString() + " %";
         soundSliders[1].value = GetVolumeLevel("musicVolume");
-        soundLabels[1].text = Mathf.RoundToInt(((soundSliders[1].value + 80f) / 0.8f)).ToString() + " %";
+        soundLabels[1].text = Mathf.RoundToInt(((GetVolumeLevel("musicVolume") + 80f) / 0.8f)).ToString() + " %";
         soundSliders[2].value = GetVolumeLevel("soundEffectsVolume");
-        soundLabels[2].text = Mathf.RoundToInt(((soundSliders[2].value + 80f) / 0.8f)).ToString() + " %";
+        soundLabels[2].text = Mathf.RoundToInt(((GetVolumeLevel("soundEffectsVolume") + 80f) / 0.8f)).ToString() + " %";
     }
 
     private float GetVolumeLevel(string name)
@@ -44,19 +44,19 @@ public class OptionsScript : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        audioMixer.SetFloat("masterVolume", Mathf.Log10(volume) * 20);
         soundLabels[0].text = Mathf.RoundToInt(((volume + 80f) / 0.8f)).ToString() + " %";
+        AudioManager.instance.AdjustMasterVolume(volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("musicVolume", Mathf.Log10(volume) * 20);
         soundLabels[1].text = Mathf.RoundToInt(((volume + 80f) / 0.8f)).ToString() + " %";
+        AudioManager.instance.AdjustMusicVolume(volume);
     }
 
     public void SetSoundEffectsVolume(float volume)
     {
-        audioMixer.SetFloat("soundEffectsVolume", Mathf.Log10(volume) * 20);
         soundLabels[2].text = Mathf.RoundToInt(((volume + 80f) / 0.8f)).ToString() + " %";
+        AudioManager.instance.AdjustEffectsVolume(volume);
     }
 }

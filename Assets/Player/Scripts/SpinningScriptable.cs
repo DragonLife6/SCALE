@@ -16,6 +16,15 @@ public class SpinningScriptable : AbilityBaseScript
     float newSpeed;
     float newRadius;
 
+    private void Start()
+    {
+        // Спільні параметри
+        // damageMultiplier, sizeMultiplier, delayMultiplier, countMultiplier, critChanceMultiplier, critDamageMultiplier
+
+        damage *= damageMultiplier;
+        projectilesNum += countMultiplier;
+    }
+
     public override void UpdateAbility(int lvl)
     {
         projectilesNum = lvl + 1;
@@ -55,7 +64,7 @@ public class SpinningScriptable : AbilityBaseScript
         {
             transform.Rotate(Vector3.forward * newSpeed * Time.deltaTime); // Обертання об'єкта
 
-            yield return null; // Перерву між кадрами
+            yield return null; // Перервa між кадрами
         }
     }
 

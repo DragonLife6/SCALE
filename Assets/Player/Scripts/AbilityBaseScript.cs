@@ -11,6 +11,13 @@ public abstract class AbilityBaseScript : MonoBehaviour
     [SerializeField] Sprite abilityIcon;
     protected int currentLevel;
 
+    protected float damageMultiplier;
+    protected float sizeMultiplier;
+    protected float delayMultiplier;
+    protected int countMultiplier;
+    protected float critChanceMultiplier;
+    protected float critDamageMultiplier;
+
 
     private void Start()
     {
@@ -32,6 +39,16 @@ public abstract class AbilityBaseScript : MonoBehaviour
         }
         
         return currentLevel > maxLevel;
+    }
+
+    public void SetBaseParams(float damage, float size, float delay, int count, float critChance, float critDamage)
+    {
+        damageMultiplier = damage;
+        sizeMultiplier = size;
+        delayMultiplier = delay;
+        countMultiplier = count;
+        critChanceMultiplier = critChance;
+        critDamageMultiplier = critDamage;
     }
 
     public string GetName() { return abilityName; }

@@ -19,6 +19,16 @@ public class DarkAuraScriptable : AbilityBaseScript
     float newSize;
     float newDelay;
 
+    private void Start()
+    {
+        // Спільні параметри
+        // damageMultiplier, sizeMultiplier, delayMultiplier, countMultiplier, critChanceMultiplier, critDamageMultiplier
+
+        damage *= damageMultiplier;
+        size *= sizeMultiplier;
+    }
+
+
     public override void Activate()
     {
         background = Instantiate(backgroundPrefab, transform).GetComponent<SpriteRenderer>();

@@ -17,6 +17,16 @@ public class SoulExplosionScriptable : AbilityBaseScript
     float newCount;
     float newDelay;
 
+    private void Start()
+    {
+        // Спільні параметри
+        // damageMultiplier, sizeMultiplier, delayMultiplier, countMultiplier, critChanceMultiplier, critDamageMultiplier
+
+        damage *= damageMultiplier;
+        projectilesCount += countMultiplier * 2;
+        delay *= delayMultiplier;
+    }
+
     public override void UpdateAbility(int lvl)
     {
         newCount = projectilesCount * lvl;

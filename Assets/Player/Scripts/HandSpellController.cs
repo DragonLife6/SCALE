@@ -18,6 +18,16 @@ public class HandSpellController : AbilityBaseScript
     Vector2 target;
     Vector3 targetPosition;
 
+    private void Start()
+    {
+        // Спільні параметри
+        // damageMultiplier, sizeMultiplier, delayMultiplier, countMultiplier, critChanceMultiplier, critDamageMultiplier
+
+        damage *= damageMultiplier;
+        size *= sizeMultiplier;
+        delay *= delayMultiplier;
+    }
+
     private void SpawnNewHand()
     {
         Quaternion rotation;

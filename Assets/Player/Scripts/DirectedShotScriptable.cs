@@ -17,6 +17,13 @@ public class DirectedShotScriptable : AbilityBaseScript
     float newSpeed;
     float newDelay;
 
+    private void Start()
+    {
+        damage *= damageMultiplier;
+        delay *= delayMultiplier;
+        projectilesNum += countMultiplier;
+    }
+
     public override void UpdateAbility(int lvl)
     {
         newDamage = damage * lvl;
