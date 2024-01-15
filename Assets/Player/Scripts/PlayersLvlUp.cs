@@ -1,16 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using UnityEngine;
 
 
 public class PlayersLvlUp : MonoBehaviour
 {
+    string playerDataPath;
+
     int currentPlayerLevel;
     [SerializeField] float expForLevel;
     float currentExp;
     float currentExpForLevel;
-    float expBonusProcent;
+    float expBonusProcent = 0f;
+    float basicBonusProcent = 0f;
     float damage, size, delay, critChance, critDamage;
     int count;
 
@@ -23,12 +27,13 @@ public class PlayersLvlUp : MonoBehaviour
     AbilitiesManagerScript abilitiesManagerScript;
 
     private PlayerHealth playerHealth;
+    private PlayerMovement playerMovement;
 
     private void LoadPlayerData()
     {
-        if (System.IO.File.Exists("playerData.json"))
+        if (File.Exists(playerDataPath))
         {
-            string json = System.IO.File.ReadAllText("playerData.json");
+            string json = File.ReadAllText(playerDataPath);
             PlayerData playerData = JsonUtility.FromJson<PlayerData>(json);
 
             damage = playerData.damage;
@@ -38,40 +43,45 @@ public class PlayersLvlUp : MonoBehaviour
             critDamage = playerData.critPower;
             count = playerData.count;
 
+            playerHealth.SetMaxHealth(playerHealth.maxHealth * playerData.maxHealth);
+            playerMovement.moveSpeed *= playerData.moveSpeed;
+
+            basicBonusProcent = playerData.expBonus;
+
         } else
         {
             PlayerData playerData = new()
             {
-                startLevel = 0,
-                maxHealth = 100f,
+                startLevel = 0, // not realised
+                maxHealth = 1f,
                 damage = 1f,
                 expBonus = 0f,
                 size = 1f,
                 delay = 1f,
                 count = 0,
-                critChance = 0.1f,
-                critPower = 1.5f,
+                critChance = 0.1f, // not realised
+                critPower = 1.5f, // not realised
                 moveSpeed = 1f
             };
 
             string json = JsonUtility.ToJson(playerData);
-            System.IO.File.WriteAllText("playerData.json", json);
-
+            File.WriteAllText(playerDataPath, json);
 
             Debug.Log("Saving!");
         }
     }
 
+    public (float, float, float, float, float, float, float, float, int, int) SendPlayerData()
+    {
+        return (playerHealth.GetCurrentMaxHealth(), damage, expBonusProcent + basicBonusProcent, size, delay, critChance, critDamage, playerMovement.moveSpeed, count, currentPlayerLevel);
+    }
 
     private void Start()
     {
+        playerDataPath = Path.Combine(Application.persistentDataPath, "playerData.json");
+        playerHealth = GetComponent<PlayerHealth>();
+        playerMovement = GetComponent<PlayerMovement>();
         LoadPlayerData();
-
-        Debug.Log("Damage: " + damage);
-        Debug.Log("Size: " + size);
-        Debug.Log("Delay: " + delay);
-        Debug.Log("Crit Chance: " + critChance);
-        Debug.Log("Count: " + count);
 
         currentExp = 0;
         currentExpForLevel = expForLevel;
@@ -79,7 +89,6 @@ public class PlayersLvlUp : MonoBehaviour
         ui_expirienceBar.UpdateSlider(currentExp, currentExpForLevel);
 
         abilitiesManagerScript = abilitiesManager.GetComponent<AbilitiesManagerScript>();
-        playerHealth = GetComponent<PlayerHealth>();
         currentPlayerLevel = 1;
         foreach (var spell in activeSpellPrefabs)
         {
@@ -143,7 +152,7 @@ public class PlayersLvlUp : MonoBehaviour
 
     public void AddExpirience(float exp)
     {
-        currentExp += exp * (1 + expBonusProcent);
+        currentExp += exp * (1 + expBonusProcent + basicBonusProcent);
         if (currentExp >= currentExpForLevel)
         {
             currentExp -= currentExpForLevel;

@@ -33,8 +33,8 @@ public abstract class AbilityBaseScript : MonoBehaviour
         else
         {
             currentLevel++;
-            if(currentLevel > maxLevel)
-                return currentLevel > maxLevel;
+            if(currentLevel >= maxLevel)
+                return currentLevel >= maxLevel;
             UpdateAbility(currentLevel);
         }
         

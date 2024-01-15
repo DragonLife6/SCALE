@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class UpgradesData
 
 public class UpdateMenuScript : MonoBehaviour
 {
+    string playerDataPath, updatesDataPath;
+
     [SerializeField] GameObject mainMenuCanvas;
     [SerializeField] TMP_Text balanceText;
     UpgradesData upgradesLoadedData;
@@ -26,21 +29,17 @@ public class UpdateMenuScript : MonoBehaviour
 
     private void LoadUpgradesData()
     {
-        if (System.IO.File.Exists("upgradesData.json"))
+        if (File.Exists(updatesDataPath))
         {
-            string json = System.IO.File.ReadAllText("upgradesData.json");
-            upgradesLoadedData = JsonUtility.FromJson<UpgradesData>(json);
+            string jsonData = File.ReadAllText(updatesDataPath);
+            upgradesLoadedData = JsonUtility.FromJson<UpgradesData>(jsonData);
         }
         else
         {
-            upgradesLoadedData = new()
-            {
-                currentPlayerBalance = 0
-            };
-
+            upgradesLoadedData = new UpgradesData();
+            upgradesLoadedData.currentPlayerBalance = 0;
             string json = JsonUtility.ToJson(upgradesLoadedData);
-            System.IO.File.WriteAllText("upgradesData.json", json);
-
+            File.WriteAllText(updatesDataPath, json);
 
             Debug.Log("Saving!");
         }
@@ -64,7 +63,7 @@ public class UpdateMenuScript : MonoBehaviour
         PlayerData playerData = new()
         {
             startLevel = 0,
-            maxHealth = 100.0f + upgradesLoadedData.paramsUpgradesCount[0] * 10f,
+            maxHealth = 1.0f + upgradesLoadedData.paramsUpgradesCount[0] * 0.1f,
             damage = 1f + upgradesLoadedData.paramsUpgradesCount[1] * 0.1f,
             size = 1f + upgradesLoadedData.paramsUpgradesCount[2] * 0.1f,
             delay = 1f - upgradesLoadedData.paramsUpgradesCount[3] * 0.05f,
@@ -76,7 +75,7 @@ public class UpdateMenuScript : MonoBehaviour
         };
 
         string json = JsonUtility.ToJson(playerData);
-        System.IO.File.WriteAllText("playerData.json", json);
+        File.WriteAllText(playerDataPath, json);
 
 
         Debug.Log("Saving Player data!");
@@ -87,13 +86,17 @@ public class UpdateMenuScript : MonoBehaviour
         upgradesLoadedData.currentPlayerBalance = currentBalance;
 
         string json = JsonUtility.ToJson(upgradesLoadedData);
-        System.IO.File.WriteAllText("upgradesData.json", json);
+        File.WriteAllText(updatesDataPath, json);
 
         Debug.Log("Saving!");
     }
 
     private void Awake()
     {
+        playerDataPath = Path.Combine(Application.persistentDataPath, "playerData.json");
+        updatesDataPath = Path.Combine(Application.persistentDataPath, "upgradesData.json");
+
+        currentBalance = 0;
         LoadUpgradesData();
         currentBalance = upgradesLoadedData.currentPlayerBalance;
         UpdateUI();

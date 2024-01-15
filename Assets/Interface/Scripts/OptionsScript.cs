@@ -14,12 +14,12 @@ public class OptionsScript : MonoBehaviour
 
     private void Start()
     {
-        soundSliders[0].value = GetVolumeLevel("masterVolume");
-        soundLabels[0].text = Mathf.RoundToInt(((GetVolumeLevel("masterVolume") + 80f) / 0.8f)).ToString() + " %";
-        soundSliders[1].value = GetVolumeLevel("musicVolume");
-        soundLabels[1].text = Mathf.RoundToInt(((GetVolumeLevel("musicVolume") + 80f) / 0.8f)).ToString() + " %";
-        soundSliders[2].value = GetVolumeLevel("soundEffectsVolume");
-        soundLabels[2].text = Mathf.RoundToInt(((GetVolumeLevel("soundEffectsVolume") + 80f) / 0.8f)).ToString() + " %";
+        soundSliders[0].value = Normalize(GetVolumeLevel("masterVolume"));
+        soundLabels[0].text = Mathf.RoundToInt(Normalize(GetVolumeLevel("masterVolume")) * 100f).ToString() + " %";
+        soundSliders[1].value = Normalize(GetVolumeLevel("musicVolume"));
+        soundLabels[1].text = Mathf.RoundToInt(Normalize(GetVolumeLevel("musicVolume")) * 100f).ToString() + " %";
+        soundSliders[2].value = Normalize(GetVolumeLevel("soundEffectsVolume"));
+        soundLabels[2].text = Mathf.RoundToInt(Normalize(GetVolumeLevel("soundEffectsVolume")) * 100f).ToString() + " %";
     }
 
     private float GetVolumeLevel(string name)
@@ -44,19 +44,42 @@ public class OptionsScript : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
-        soundLabels[0].text = Mathf.RoundToInt(((volume + 80f) / 0.8f)).ToString() + " %";
-        AudioManager.instance.AdjustMasterVolume(volume);
+        soundLabels[0].text = Mathf.RoundToInt(volume * 100).ToString() + " %";
+        AudioManager.instance.AdjustMasterVolume(Unnormalize(volume));
     }
 
     public void SetMusicVolume(float volume)
     {
-        soundLabels[1].text = Mathf.RoundToInt(((volume + 80f) / 0.8f)).ToString() + " %";
-        AudioManager.instance.AdjustMusicVolume(volume);
+        soundLabels[1].text = Mathf.RoundToInt(volume * 100).ToString() + " %";
+        AudioManager.instance.AdjustMusicVolume(Unnormalize(volume));
     }
 
     public void SetSoundEffectsVolume(float volume)
     {
-        soundLabels[2].text = Mathf.RoundToInt(((volume + 80f) / 0.8f)).ToString() + " %";
-        AudioManager.instance.AdjustEffectsVolume(volume);
+        soundLabels[2].text = Mathf.RoundToInt(volume * 100).ToString() + " %";
+        AudioManager.instance.AdjustEffectsVolume(Unnormalize(volume));
+    }
+
+    private float Unnormalize(float volume)
+    {
+        if (volume != 0f)
+        {
+            return 20f * Mathf.Log(volume);
+        } else
+        {
+            return -80f;
+        }
+    }
+
+    private float Normalize(float volume)
+    {
+        if(volume != -80f)
+        {
+            return Mathf.Exp(volume / 20);
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

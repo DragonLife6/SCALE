@@ -66,6 +66,8 @@ public class HandSpellController : AbilityBaseScript
                 if (i % 2 == 1)
                     y = -1;
                 hand_instance.transform.rotation *= new Quaternion(0, y, 0, 0);
+
+                yield return new WaitForSeconds(Random.Range(0.0f, 0.5f));
             }
 
             yield return new WaitForSeconds(newDelay);

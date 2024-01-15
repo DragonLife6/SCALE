@@ -1,12 +1,13 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Unity.VisualScripting;
+using System.Collections;
 
 public class AbilitiesManagerScript : MonoBehaviour
 {
     Transform target;
     public float resetProcent = 0.3f;
+    [SerializeField] float transitionDuration = 1f;
     PlayersLvlUp playerLvlUpScript;
     [SerializeField] GameObject player;
 
@@ -36,14 +37,41 @@ public class AbilitiesManagerScript : MonoBehaviour
     {
         playerLvlUpScript.SkillLevelUp(buttonNum);
 
-        Time.timeScale = 1f;
+        Time.timeScale = 0.1f;
+        StartCoroutine(SmoothTimeScaleIncrease());
         levelUpCanvas.SetActive(false);
     }
-    
+
+    IEnumerator SmoothTimeScaleIncrease()
+    {
+        float elapsedTime = 0f;
+        float startScale = Time.timeScale;
+
+        while (elapsedTime < transitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / transitionDuration);
+            float smoothedT = EaseInOutQuad(t);
+
+            Time.timeScale = Mathf.Lerp(startScale, 1f, smoothedT);
+
+            yield return null;
+        }
+        
+        Time.timeScale = 1f;
+    }
+
+    float EaseInOutQuad(float t)
+    {
+        return t < 0.5f ? 2f * t * t : -1f + (4f - 2f * t) * t;
+    }
+
     public void ResetLevelClicked()
     {
         playerLvlUpScript.PlayerResetLevel(resetProcent);
-        Time.timeScale = 1f;
+
+        Time.timeScale = 0.1f;
+        StartCoroutine(SmoothTimeScaleIncrease());
         levelUpCanvas.SetActive(false);
     }
 

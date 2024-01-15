@@ -22,6 +22,6 @@ public class HealthSpellScriptable : AbilityBaseScript
     public override void UpdateAbility(int lvl)
     {
         currentMaxHealth = maxHealthOnLevel[currentLevel];
-        player.SetMaxHealth(currentMaxHealth);
+        player.SetCurrentMaxHealth(currentMaxHealth);
     }
 }

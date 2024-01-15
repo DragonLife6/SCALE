@@ -61,7 +61,21 @@ public class PlayerHealth : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void SetMaxHealth(float coef)
+    public float GetCurrentMaxHealth()
+    {
+        return currentMaxHealth;
+    }
+
+    public void SetMaxHealth(float newMax)
+    {
+        maxHealth = newMax;
+        currentMaxHealth = maxHealth;
+        health = currentMaxHealth;
+
+        ui_healthBar.UpdateSlider(health, currentMaxHealth);
+    } 
+
+    public void SetCurrentMaxHealth(float coef)
     {
         float tmp = currentMaxHealth;
         currentMaxHealth = maxHealth * coef;
