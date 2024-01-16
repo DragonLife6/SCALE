@@ -6,14 +6,22 @@ public class DarkAuraCircle : MonoBehaviour
 {
     float damage;
     float delay;
+    float size;
     Vector3 initialSize = Vector3.zero;
 
+    float critChance = 0f;
+    float critPower = 1f;
 
-    public void SetParameters(float newDamage, float newDelay, float newSize)
+    public void SetParameters(float newDamage, float newDelay, float newSize, float chance, float power)
     {
         damage = newDamage;
         delay = newDelay;
-        ChangeSize(newSize);
+        size = newSize;
+
+        critChance = chance;
+        critPower = power;
+
+        ChangeSize(size);
     }
 
     private void ChangeSize(float newSize)
@@ -23,7 +31,6 @@ public class DarkAuraCircle : MonoBehaviour
             initialSize = transform.localScale;
         }
         transform.localScale = initialSize * newSize;
-        //size = newSize;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -60,7 +67,7 @@ public class DarkAuraCircle : MonoBehaviour
         EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
         if (enemyHealth != null)
         {
-            enemyHealth.GetDamage(damage);
+            enemyHealth.GetDamage(damage, critChance, critPower);
         }
     }
 }

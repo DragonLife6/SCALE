@@ -36,6 +36,37 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    private bool DetermineCrit(float chance)
+    {
+        float num = Random.Range(0, 1f);
+
+        if(chance < num)
+        {
+            return false;
+        } 
+
+        return true;
+    }
+
+    public void GetDamage(float damage, float chance, float power)
+    {
+        if(DetermineCrit(chance))
+        {
+            health -= damage * power;
+        } else
+        {
+            health -= damage;
+        }
+
+        flashScript.HitFlash(); // Додати візуалізацію для критичного удару
+
+        if (health <= 0)
+        {
+            DeathAndDestroy();
+        }
+        lastDamageTime = Time.time;
+    }
+
 
     public void GetDamage(float damage)
     {

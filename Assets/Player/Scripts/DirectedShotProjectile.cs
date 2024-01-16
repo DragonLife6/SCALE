@@ -7,6 +7,10 @@ public class DirectedShotProjectile : MonoBehaviour
 {
     float damage = 0f;
     float speed = 0f;
+
+    float critChance = 0f;
+    float critPower = 1f;
+
     Transform target;
     Vector3 moveDirection;
 
@@ -33,11 +37,14 @@ public class DirectedShotProjectile : MonoBehaviour
         }
     }
 
-    public void SetParameters(float dmg, float spd, Transform trgt)
+    public void SetParameters(float dmg, float spd, float size, float chance, float power, Transform trgt)
     {
         damage = dmg; 
         speed = spd;
         target = trgt;
+        transform.localScale *= size;
+        critChance = chance;
+        critPower = power;
 
         moveDirection = (target.position - transform.position).normalized;
     }
@@ -50,7 +57,7 @@ public class DirectedShotProjectile : MonoBehaviour
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.GetDamage(damage);
+                enemyHealth.GetDamage(damage, critChance, critPower);
             }
 
             Destroy(gameObject);

@@ -53,15 +53,35 @@ MonoBehaviour:
   - Feed entity with part of your soul
   - Feed entity with part of your soul
   maxLevel: 5
-  abilityIcon: {fileID: 0}
+  abilityIcon: {fileID: -1108646401, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  isPassive: 0
   circlePrefab: {fileID: 5160803097813503439, guid: 7ea54cd52625e374b96d3211151e3b62, type: 3}
   backgroundPrefab: {fileID: 8153243437402851390, guid: 359419c9b204c314f8a4e4ac44f88ac4, type: 3}
-  damage: 5
-  delay: 1
-  size: 1
+  damageOnLevel:
+  - 5
+  - 7
+  - 10
+  - 15
+  - 20
+  - 25
+  delayOnLevel:
+  - 0.5
+  - 0.45
+  - 0.4
+  - 0.35
+  - 0.3
+  - 0.3
+  sizeOnLevel:
+  - 1
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
+  - 2
   bgSprites:
   - {fileID: -99052551, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
   - {fileID: 850439972, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
   - {fileID: 1681614855, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
   - {fileID: 1661016115, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
   - {fileID: 1237477527, guid: 6e9c117739a9da641aa5967009efcbc3, type: 3}
+  newDamage: 0

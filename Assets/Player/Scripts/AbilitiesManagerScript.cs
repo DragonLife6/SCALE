@@ -44,7 +44,7 @@ public class AbilitiesManagerScript : MonoBehaviour
 
     IEnumerator SmoothTimeScaleIncrease()
     {
-        float elapsedTime = 0f;
+        float elapsedTime = 0.1f;
         float startScale = Time.timeScale;
 
         while (elapsedTime < transitionDuration)
@@ -75,8 +75,10 @@ public class AbilitiesManagerScript : MonoBehaviour
         levelUpCanvas.SetActive(false);
     }
 
+
     public void ShowLevelUpMenu(AbilityBaseScript[] spells)
     {
+        StopAllCoroutines();
         Time.timeScale = 0f;
         levelUpCanvas.SetActive(true);
 

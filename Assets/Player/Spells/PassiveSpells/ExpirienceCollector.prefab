@@ -55,15 +55,16 @@ MonoBehaviour:
   - Radius = 2.4
   - Radius = 2.8
   maxLevel: 5
-  abilityIcon: {fileID: 2144778577, guid: dcf770b6a50d5784b8e17f2dc9d7307a, type: 3}
+  abilityIcon: {fileID: 1886396783, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  isPassive: 1
   colliderRadiusOnLevel:
-  - 0.7
-  - 0.9
-  - 1.1
-  - 1.3
-  - 1.5
-  - 1.7
-  - 1.7
+  - 1
+  - 1.2
+  - 1.4
+  - 1.6
+  - 1.8
+  - 2
+  - 2.5
 --- !u!58 &2160685600504599759
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -98,7 +99,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.5}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.7
 --- !u!50 &2452081749759632555
 Rigidbody2D:
   serializedVersion: 4

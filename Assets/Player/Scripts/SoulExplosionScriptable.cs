@@ -7,31 +7,26 @@ using static UnityEngine.GraphicsBuffer;
 
 public class SoulExplosionScriptable : AbilityBaseScript
 {
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] float damage = 5f;
-    [SerializeField] float delay = 2f;
-    [SerializeField] int projectilesCount = 2;
-    [SerializeField] Sprite[] projectileSprites;
+    [SerializeField] GameObject[] projectilePrefabs;
+    [SerializeField] float[] damageOnLevel;
+    [SerializeField] float[] delayOnLevel;
+    [SerializeField] int[] countOnLevel;
+    [SerializeField] float[] speedOnLevel;
+    [SerializeField] float[] sizeOnLevel;
 
     float newDamage;
     float newCount;
     float newDelay;
-
-    private void Start()
-    {
-        // Спільні параметри
-        // damageMultiplier, sizeMultiplier, delayMultiplier, countMultiplier, critChanceMultiplier, critDamageMultiplier
-
-        damage *= damageMultiplier;
-        projectilesCount += countMultiplier * 2;
-        delay *= delayMultiplier;
-    }
+    float newSpeed;
+    float newSize;
 
     public override void UpdateAbility(int lvl)
     {
-        newCount = projectilesCount * lvl;
-        newDamage = damage * lvl;
-        newDelay = delay - 0.1f * lvl;
+        newDamage = damageOnLevel[lvl - 1] * damageMultiplier;
+        newCount = countOnLevel[lvl - 1] + countMultiplier;
+        newDelay = delayOnLevel[lvl - 1] * delayMultiplier;
+        newSpeed = speedOnLevel[lvl - 1];
+        newSize = sizeOnLevel[lvl - 1] * sizeMultiplier;
     }
 
     private IEnumerator Shoot()
@@ -43,9 +38,10 @@ public class SoulExplosionScriptable : AbilityBaseScript
             for (int i = 0; i < newCount; i++)
             {
                 projectileRotation = (360 / newCount) * i + randomOffset;
-                
-                SoulExplosionProjectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<SoulExplosionProjectile>();
-                projectile.SetParameters(newDamage, projectileRotation);
+                int num = Random.Range(0, projectilePrefabs.Length);
+
+                SoulExplosionProjectile projectile = Instantiate(projectilePrefabs[num], transform.position, Quaternion.identity).GetComponent<SoulExplosionProjectile>();
+                projectile.SetParameters(newDamage, newSpeed, newSize, critChanceMultiplier, critDamageMultiplier, projectileRotation);
             }
 
             yield return new WaitForSeconds(newDelay);
@@ -54,10 +50,9 @@ public class SoulExplosionScriptable : AbilityBaseScript
 
     public override void Activate()
     {
-        newDamage = damage;
-        newCount = projectilesCount;
-        newDelay = delay;
         currentLevel = 1;
+
+        UpdateAbility(currentLevel);
 
         StartCoroutine(Shoot());
     }

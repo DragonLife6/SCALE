@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float health;
     private float currentMaxHealth;
+    private float protectionCoef;
     private HitFlashScript flashScript;
     private Animator animator;
     public bool isAlive = true;
@@ -19,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        protectionCoef = 0f;
         deathMenu.SetActive(false);
         currentMaxHealth = maxHealth;
         health = currentMaxHealth;
@@ -41,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        health -= damage;
+        health -= damage * (1f - protectionCoef);
         ui_healthBar.UpdateSlider(health, currentMaxHealth);
 
         flashScript.HitFlash();
@@ -74,6 +76,11 @@ public class PlayerHealth : MonoBehaviour
 
         ui_healthBar.UpdateSlider(health, currentMaxHealth);
     } 
+
+    public void SetProtection(float coef)
+    {
+        protectionCoef = coef;
+    }
 
     public void SetCurrentMaxHealth(float coef)
     {

@@ -54,9 +54,37 @@ MonoBehaviour:
   - Explosion test 6
   - Explosion test 7
   maxLevel: 5
-  abilityIcon: {fileID: 0}
-  projectilePrefab: {fileID: 3184367301834788971, guid: 8d2c919620454704d8809eb4ebbe764a, type: 3}
-  damage: 10
-  delay: 4
-  projectilesCount: 2
-  projectileSprites: []
+  abilityIcon: {fileID: 203473564, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  isPassive: 0
+  projectilePrefabs:
+  - {fileID: 3184367301834788971, guid: 8d2c919620454704d8809eb4ebbe764a, type: 3}
+  - {fileID: 8895607391427949115, guid: 3f97dfaf869239c419184338ac795195, type: 3}
+  damageOnLevel:
+  - 20
+  - 22
+  - 25
+  - 30
+  - 35
+  - 40
+  delayOnLevel:
+  - 1.5
+  - 1.4
+  - 1.3
+  - 1.2
+  - 1.1
+  - 1
+  countOnLevel: 020000000400000006000000080000000a0000000c000000
+  speedOnLevel:
+  - 5
+  - 6
+  - 7
+  - 7
+  - 7
+  - 7
+  sizeOnLevel:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1

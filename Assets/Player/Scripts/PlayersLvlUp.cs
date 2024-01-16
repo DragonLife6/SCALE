@@ -16,11 +16,13 @@ public class PlayersLvlUp : MonoBehaviour
     float expBonusProcent = 0f;
     float basicBonusProcent = 0f;
     float damage, size, delay, critChance, critDamage;
+    float damageFromAbilitie, chanceFromAbilitie, powerFromAbilitie;
     int count;
 
     [SerializeField] GameObject[] passiveSpellPrefabs;
     [SerializeField] GameObject[] activeSpellPrefabs;
     List<AbilityBaseScript> allSpells= new();
+    List<AbilityBaseScript> allDeletedSpells = new();
 
     [SerializeField] UI_SliderScript ui_expirienceBar;
     [SerializeField] GameObject abilitiesManager;
@@ -59,8 +61,8 @@ public class PlayersLvlUp : MonoBehaviour
                 size = 1f,
                 delay = 1f,
                 count = 0,
-                critChance = 0.1f, // not realised
-                critPower = 1.5f, // not realised
+                critChance = 0.1f,
+                critPower = 1.5f,
                 moveSpeed = 1f
             };
 
@@ -73,7 +75,53 @@ public class PlayersLvlUp : MonoBehaviour
 
     public (float, float, float, float, float, float, float, float, int, int) SendPlayerData()
     {
-        return (playerHealth.GetCurrentMaxHealth(), damage, expBonusProcent + basicBonusProcent, size, delay, critChance, critDamage, playerMovement.moveSpeed, count, currentPlayerLevel);
+        return (playerHealth.GetCurrentMaxHealth(), 
+            damage * damageFromAbilitie, 
+            expBonusProcent + basicBonusProcent, 
+            size, 
+            delay, 
+            critChance + chanceFromAbilitie, 
+            critDamage * powerFromAbilitie, 
+            playerMovement.moveSpeed, 
+            count, 
+            currentPlayerLevel);
+    }
+
+    public void SetCritDamage(float chance, float power)
+    {
+        chanceFromAbilitie = chance; // From 0
+        powerFromAbilitie = power; // From 1
+
+        UpdateSpells();
+    }
+
+    public void SetBonusDamage(float coef)
+    {
+        damageFromAbilitie = 1f + coef;
+
+        UpdateSpells();
+    }
+
+    private void UpdateSpells()
+    {
+        foreach (var spell in allSpells)
+        {
+            if (!spell.isPassive)
+            {
+                spell.SetBaseParams(damage * damageFromAbilitie, size, delay, count, critChance + chanceFromAbilitie, critDamage * powerFromAbilitie);
+            }
+        }
+
+        if (allDeletedSpells.Count > 0)
+        {
+            foreach (var spell in allDeletedSpells)
+            {
+                if (!spell.isPassive)
+                {
+                    spell.SetBaseParams(damage * damageFromAbilitie, size, delay, count, critChance + chanceFromAbilitie, critDamage * powerFromAbilitie);
+                }
+            }
+        }
     }
 
     private void Start()
@@ -83,6 +131,9 @@ public class PlayersLvlUp : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         LoadPlayerData();
 
+        damageFromAbilitie = 1f;
+        chanceFromAbilitie = 0f;
+        powerFromAbilitie = 1f;
         currentExp = 0;
         currentExpForLevel = expForLevel;
         expBonusProcent = 0;
@@ -122,6 +173,9 @@ public class PlayersLvlUp : MonoBehaviour
 
     public void PlayerResetLevel(float procent)
     {
+        currentPlayerLevel--;
+        currentExpForLevel /= 1.15f;
+
         currentExp = procent * currentExpForLevel;
         ui_expirienceBar.UpdateSlider(currentExp, currentExpForLevel);
         Shuffle(allSpells);
@@ -132,6 +186,7 @@ public class PlayersLvlUp : MonoBehaviour
         bool maxLevel = allSpells[skillId].LevelUp();
         if(maxLevel)
         {
+            allDeletedSpells.Add(allSpells[skillId]);
             allSpells.Remove(allSpells[skillId]);
         }
         Shuffle(allSpells);

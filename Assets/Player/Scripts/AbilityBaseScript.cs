@@ -11,6 +11,8 @@ public abstract class AbilityBaseScript : MonoBehaviour
     [SerializeField] Sprite abilityIcon;
     protected int currentLevel;
 
+    public bool isPassive = false;
+
     protected float damageMultiplier;
     protected float sizeMultiplier;
     protected float delayMultiplier;
@@ -33,9 +35,9 @@ public abstract class AbilityBaseScript : MonoBehaviour
         else
         {
             currentLevel++;
+            UpdateAbility(currentLevel);
             if(currentLevel >= maxLevel)
                 return currentLevel >= maxLevel;
-            UpdateAbility(currentLevel);
         }
         
         return currentLevel > maxLevel;
@@ -49,6 +51,11 @@ public abstract class AbilityBaseScript : MonoBehaviour
         countMultiplier = count;
         critChanceMultiplier = critChance;
         critDamageMultiplier = critDamage;
+        
+        if (currentLevel > 0)
+        {
+            UpdateAbility(currentLevel);
+        }
     }
 
     public string GetName() { return abilityName; }

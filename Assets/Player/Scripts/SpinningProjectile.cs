@@ -6,12 +6,20 @@ using static UnityEngine.GraphicsBuffer;
 public class SpinningProjectile : MonoBehaviour
 {
     float damage = 0f;
-    float radius = 1f;
+    float size = 1f;
 
-    public void SetParameters(float dmg, float rds)
+    float critChance = 0f;
+    float critPower = 1f;
+
+    public void SetParameters(float dmg, float sz, float chance, float power)
     {
         damage = dmg;
-        radius = rds;
+        size = sz;
+
+        transform.localScale *= size;
+
+        critChance = chance;
+        critPower = power;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -22,7 +30,7 @@ public class SpinningProjectile : MonoBehaviour
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.GetDamage(damage);
+                enemyHealth.GetDamage(damage, critChance, critPower);
             }
         }
     }

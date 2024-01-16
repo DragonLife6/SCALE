@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Skill_Icon_Spin
+      name: UI_Skill_Icons_CritChance
       rect:
         serializedVersion: 2
-        x: 37
-        y: 2555
-        width: 400
-        height: 400
+        x: 19
+        y: 2535
+        width: 446
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 358ff77fbc211e04cae0ee5c89a1b3af
-      internalID: 876686840
+      spriteID: 91b6f5ab03d846547ab4add7ba311b21
+      internalID: 1274515189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Skill_Icon_Health
+      name: UI_Skill_Icons_CritDamage
       rect:
         serializedVersion: 2
-        x: 554
-        y: 2562
-        width: 400
-        height: 400
+        x: 520
+        y: 2529
+        width: 446
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c0f178b100d1f44bb0aee533d887c24
-      internalID: 448144390
+      spriteID: dbf8efb24e8a54945a13b52da636ab03
+      internalID: 7892103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_Skill_Icon_Directed
+      name: UI_Skill_Icons_ExpBonus
       rect:
         serializedVersion: 2
-        x: 1041
-        y: 2553
-        width: 400
-        height: 400
+        x: 1021
+        y: 2529
+        width: 446
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,218 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ce38eb8c327e7d4fb6effab76ed5d04
-      internalID: 94259770
+      spriteID: e8507096059ac5345b88fcd595f76c66
+      internalID: 577485084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_3
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 2525
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b0096f25dea274a96c322a07480914
+      internalID: 1784345497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_4
+      rect:
+        serializedVersion: 2
+        x: 2035
+        y: 2515
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd08d16a4e0b0a44eaf906da1c0ab132
+      internalID: 203473564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_5
+      rect:
+        serializedVersion: 2
+        x: 2512
+        y: 2513
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a98c982125d04f74b859498bbebf4048
+      internalID: -2012448028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_RotatingSpell
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 2034
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427969a3a16024a4bba3ab6d9da12432
+      internalID: 2029652016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_Protection
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 2034.1666
+        width: 445.83334
+        height: 445.83334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2995b625f411fd44b0fd3717a014770
+      internalID: 1592873258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_MaxHP
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 2034
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9307f6d2ec71a4d864455206dadd5c
+      internalID: -1548377843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_DarkAura
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 2046
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821de5b8fcf971c40ba6f010059fc270
+      internalID: -1108646401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_GroundHand
+      rect:
+        serializedVersion: 2
+        x: 2035
+        y: 2032
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03df87ec3fceff429f20075d8a4aed5
+      internalID: 1998522666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_11
+      rect:
+        serializedVersion: 2
+        x: 2544
+        y: 2032
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bece5288062790743b26a2a8f52ad10e
+      internalID: 1886396783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_17
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1539.1666
+        width: 445.83334
+        height: 445.83334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c333b8c263b6546850f29a50fc0b71
+      internalID: -455762694
       vertices: []
       indices: 
       edges: []
@@ -196,13 +406,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_Skill_Icon_Directed: 94259770
-      UI_Skill_Icon_Health: 448144390
-      UI_Skill_Icon_Spin: 876686840
-      UI_Skill_Icons_1: 7892103
-      UI_Skill_Icons_2: 577485084
+      UI_Skill_Icons_11: 1886396783
+      UI_Skill_Icons_12: -1643730763
+      UI_Skill_Icons_13: -1026035709
+      UI_Skill_Icons_14: 2111639305
+      UI_Skill_Icons_15: 291289118
+      UI_Skill_Icons_16: -453278745
+      UI_Skill_Icons_17: -455762694
+      UI_Skill_Icons_18: 1307739184
+      UI_Skill_Icons_19: -2057622601
+      UI_Skill_Icons_20: -30785920
+      UI_Skill_Icons_21: 657411148
+      UI_Skill_Icons_22: 313978944
+      UI_Skill_Icons_23: -423230114
+      UI_Skill_Icons_24: 263655376
+      UI_Skill_Icons_25: -1176813350
+      UI_Skill_Icons_26: -1733869404
+      UI_Skill_Icons_27: 2074184807
+      UI_Skill_Icons_28: 925528171
+      UI_Skill_Icons_29: -1423008611
       UI_Skill_Icons_3: 1784345497
+      UI_Skill_Icons_30: 35109686
+      UI_Skill_Icons_31: -1810834114
+      UI_Skill_Icons_32: -316101212
+      UI_Skill_Icons_33: -154763769
+      UI_Skill_Icons_34: -88633895
+      UI_Skill_Icons_35: 897576801
       UI_Skill_Icons_4: 203473564
+      UI_Skill_Icons_5: -2012448028
+      UI_Skill_Icons_CritChance: 1274515189
+      UI_Skill_Icons_CritDamage: 7892103
+      UI_Skill_Icons_DarkAura: -1108646401
+      UI_Skill_Icons_ExpBonus: 577485084
+      UI_Skill_Icons_GroundHand: 1998522666
+      UI_Skill_Icons_MaxHP: -1548377843
+      UI_Skill_Icons_Protection: 1592873258
+      UI_Skill_Icons_RotatingSpell: 2029652016
   mipmapLimitGroupName: 
   pSDRemoveMatte: 1
   userData: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,41 +11,35 @@ public class DarkAuraScriptable : AbilityBaseScript
     [SerializeField] GameObject backgroundPrefab;
     DarkAuraCircle circle;
     SpriteRenderer background;
-    [SerializeField] float damage = 5f;
-    [SerializeField] float delay = 1f;
-    [SerializeField] float size = 1f;
+
+    [SerializeField] float[] damageOnLevel;
+    [SerializeField] float[] delayOnLevel;
+    [SerializeField] float[] sizeOnLevel;
+
     [SerializeField] Sprite[] bgSprites;
 
-    float newDamage;
-    float newSize;
+    public float newDamage;
     float newDelay;
-
-    private void Start()
-    {
-        // Спільні параметри
-        // damageMultiplier, sizeMultiplier, delayMultiplier, countMultiplier, critChanceMultiplier, critDamageMultiplier
-
-        damage *= damageMultiplier;
-        size *= sizeMultiplier;
-    }
+    float newSize;
 
 
     public override void Activate()
     {
         background = Instantiate(backgroundPrefab, transform).GetComponent<SpriteRenderer>();
         circle = Instantiate(circlePrefab, transform).GetComponent<DarkAuraCircle>();
-        newDamage = damage;
-        newSize = size;
-        newDelay = delay;
+        
         currentLevel = 1;
-
-        circle.SetParameters(newDamage, newDelay, newSize);
+        UpdateAbility(currentLevel);
     }
 
     public override void UpdateAbility(int lvl)
     {
-        newSize = size * (1f + 0.2f * lvl);
-        circle.SetParameters(newDamage, newDelay, newSize);
+        newDamage = damageOnLevel[lvl - 1] * damageMultiplier;
+        newDelay = delayOnLevel[lvl - 1];
+        newSize = sizeOnLevel[lvl - 1] * sizeMultiplier;
+        
+        circle.SetParameters(newDamage, newDelay, newSize, critChanceMultiplier, critDamageMultiplier);
+        
         if(bgSprites.Length >= lvl)
         {
             background.sprite = bgSprites[lvl - 1];

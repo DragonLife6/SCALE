@@ -1,38 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class HandSpellController : AbilityBaseScript
 {
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject handBase;
-    [SerializeField] float damage = 10f;
-    [SerializeField] float size = 1f;
-    [SerializeField] float delay = 2f;
-    [SerializeField] int projectilesNum = 1;
+    [SerializeField] float[] damageOnLevel;
+    [SerializeField] float[] sizeOnLevel;
+    [SerializeField] float[] delayOnLevel;
 
     float newDamage;
     float newSize;
     float newDelay;
 
+    int newCount;
+    int currentHands = 0;
+
     Vector2 target;
     Vector3 targetPosition;
 
-    private void Start()
-    {
-        // Спільні параметри
-        // damageMultiplier, sizeMultiplier, delayMultiplier, countMultiplier, critChanceMultiplier, critDamageMultiplier
-
-        damage *= damageMultiplier;
-        size *= sizeMultiplier;
-        delay *= delayMultiplier;
-    }
 
     private void SpawnNewHand()
     {
+        currentHands++;
+
         Quaternion rotation;
         float z = Random.Range(-70, 20);
-        float y = Random.Range(-1, 1);
+
         if (currentLevel % 2 == 0)
             rotation = Quaternion.Euler(0, 0, z);
         else
@@ -43,25 +39,28 @@ public class HandSpellController : AbilityBaseScript
 
     public override void UpdateAbility(int lvl)
     {
-        projectilesNum = lvl;
-        newDamage = damage * lvl;
-        newSize = size + 0.1f * lvl;
-        newDelay = delay - 0.1f * lvl;
+        newDamage = damageOnLevel[lvl - 1] * damageMultiplier;
+        newSize = sizeOnLevel[lvl - 1] * sizeMultiplier;
+        newDelay = delayOnLevel[lvl - 1] * delayMultiplier;
+        newCount = lvl;
 
-        SpawnNewHand();
+        if (currentHands < newCount)
+        {
+            SpawnNewHand();
+        }
     }
 
     private IEnumerator Shoot()
     {
         while (true)
         { 
-            for (int i = 0; i < projectilesNum; i++)
+            for (int i = 0; i < newCount; i++)
             {
                 target = Random.insideUnitCircle * 5;
                 targetPosition = new Vector3(transform.position.x + target.x, transform.position.y + target.y, 0);
 
                 HandProjectileScript hand_instance = Instantiate(projectile, targetPosition, Quaternion.identity).GetComponent<HandProjectileScript>();
-                hand_instance.SetParameters(newDamage, newSize);
+                hand_instance.SetParameters(newDamage, newSize, critChanceMultiplier, critDamageMultiplier);
                 float y = 0;
                 if (i % 2 == 1)
                     y = -1;
@@ -76,12 +75,9 @@ public class HandSpellController : AbilityBaseScript
 
     public override void Activate()
     {
-        newDamage = damage;
-        newSize = size;
-        newDelay = delay;
         currentLevel = 1;
 
-        SpawnNewHand();
+        UpdateAbility(currentLevel);
         StartCoroutine(Shoot());
     }
 }

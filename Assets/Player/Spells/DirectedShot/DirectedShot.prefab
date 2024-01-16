@@ -55,9 +55,43 @@ MonoBehaviour:
   - Directed shot lvl 7
   - Directed shot lvl 8
   maxLevel: 7
-  abilityIcon: {fileID: 94259770, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  abilityIcon: {fileID: -2012448028, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  isPassive: 0
   projectile: {fileID: 8586998824991329508, guid: 1a8a1f9f0c87cc84a9c9f4a588b21926, type: 3}
-  damage: 10
-  speed: 5
-  delay: 2
-  projectilesNum: 1
+  damageOnLevel:
+  - 10
+  - 15
+  - 20
+  - 25
+  - 30
+  - 35
+  - 40
+  - 50
+  speedOnLevel:
+  - 5
+  - 5.5
+  - 6
+  - 6.5
+  - 7
+  - 7
+  - 7
+  - 7
+  delayOnLevel:
+  - 1.5
+  - 1.4
+  - 1.3
+  - 1.2
+  - 1.1
+  - 1
+  - 1
+  - 1
+  projectilesNumOnLevel: 0100000001000000020000000200000003000000040000000500000005000000
+  projectilesSizeOnLevel:
+  - 1
+  - 1.05
+  - 1.1
+  - 1.15
+  - 1.2
+  - 1.25
+  - 1.3
+  - 1.3

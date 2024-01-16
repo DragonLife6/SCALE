@@ -54,5 +54,6 @@ MonoBehaviour:
   - You will recieve more expirience by 10 %
   - You will recieve more expirience by 10 %
   maxLevel: 5
-  abilityIcon: {fileID: 0}
+  abilityIcon: {fileID: 577485084, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  isPassive: 1
   bonusExpirience: 0a000000140000001e00000028000000320000003c00000046000000

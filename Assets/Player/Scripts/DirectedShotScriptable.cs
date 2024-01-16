@@ -5,30 +5,29 @@ using UnityEngine;
 public class DirectedShotScriptable : AbilityBaseScript
 {
     [SerializeField] GameObject projectile;
-    [SerializeField] float damage = 10f;
-    [SerializeField] float speed = 10f;
-    [SerializeField] float delay = 2f;
-    [SerializeField] int projectilesNum = 1;
+    [SerializeField] float[] damageOnLevel;
+    [SerializeField] float[] speedOnLevel;
+    [SerializeField] float[] delayOnLevel;
+    [SerializeField] int[] projectilesNumOnLevel;
+    [SerializeField] float[] projectilesSizeOnLevel;
+
     EnemyManager enemyManager;
 
     List<Transform> enemies = new List<Transform>();
 
-    float newDamage;
-    float newSpeed;
-    float newDelay;
-
-    private void Start()
-    {
-        damage *= damageMultiplier;
-        delay *= delayMultiplier;
-        projectilesNum += countMultiplier;
-    }
+    float newDamage = 0f;
+    float newSpeed = 0f;
+    float newDelay = 0f;
+    float newSize = 0f;
+    int newProjectilesNum = 0;
 
     public override void UpdateAbility(int lvl)
     {
-        newDamage = damage * lvl;
-
-
+        newDamage = damageOnLevel[lvl - 1] * damageMultiplier;
+        newSpeed = speedOnLevel[lvl - 1];
+        newDelay = delayOnLevel[lvl - 1] * delayMultiplier;
+        newSize = projectilesSizeOnLevel[lvl - 1] * sizeMultiplier;
+        newProjectilesNum = projectilesNumOnLevel[lvl - 1] + countMultiplier;
     }
 
     private IEnumerator Shoot()
@@ -36,12 +35,12 @@ public class DirectedShotScriptable : AbilityBaseScript
         while (true)
         {
             enemies = enemyManager.GetClossestEnemies();
-            for (int i = 0; i < projectilesNum; i++)
+            for (int i = 0; i < newProjectilesNum; i++)
             {
                 if (enemies.Count > i)
                 {
                     DirectedShotProjectile fireball_instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<DirectedShotProjectile>();
-                    fireball_instance.SetParameters(newDamage, newSpeed, enemies[i]);
+                    fireball_instance.SetParameters(newDamage, newSpeed, newSize, critChanceMultiplier, critDamageMultiplier, enemies[i]);
                 }
             }
 
@@ -52,11 +51,8 @@ public class DirectedShotScriptable : AbilityBaseScript
     public override void Activate()
     {
         enemyManager = GameObject.Find("Enemy_manager").GetComponent<EnemyManager>();
-
-        newDamage = damage;
-        newSpeed = speed;
-        newDelay = delay;
         currentLevel = 1;
+        UpdateAbility(currentLevel);
 
         StartCoroutine(Shoot());
     }

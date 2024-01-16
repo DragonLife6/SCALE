@@ -56,13 +56,39 @@ MonoBehaviour:
   - Spin lbl 7
   - Spin lbl 7
   - Spin lbl 7
-  maxLevel: 7
-  abilityIcon: {fileID: 876686840, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  maxLevel: 5
+  abilityIcon: {fileID: 2029652016, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  isPassive: 0
   projectile: {fileID: 8589018301590865847, guid: 2ba5a4c43cc5ba94987e70ec21bd3043, type: 3}
-  damage: 5
-  speed: 100
-  radius: 2
-  projectilesNum: 2
+  damageOnLevel:
+  - 10
+  - 12
+  - 15
+  - 20
+  - 25
+  - 25
+  speedOnLevel:
+  - 90
+  - 110
+  - 130
+  - 150
+  - 170
+  - 210
+  radiusOnLevel:
+  - 2
+  - 2.1
+  - 2.2
+  - 2.3
+  - 2.4
+  - 3
+  sizeOnLevel:
+  - 1
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
+  - 3
+  countOnLevel: 020000000300000004000000050000000600000006000000
 --- !u!50 &-3237562664512959762
 Rigidbody2D:
   serializedVersion: 4
