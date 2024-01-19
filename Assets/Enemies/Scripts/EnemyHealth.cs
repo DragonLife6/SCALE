@@ -89,7 +89,7 @@ public class EnemyHealth : MonoBehaviour
     private void DeathAndDestroy()
     {
         Destroy(gameObject, 0.3f);
-        animator.Play("SoulEnemyDeath");
+        animator.Play("Death");
         int randomPrefab = Random.Range(0, soulPrefabs.Length);
         Instantiate(soulPrefabs[randomPrefab], transform.position, Quaternion.identity);
     }

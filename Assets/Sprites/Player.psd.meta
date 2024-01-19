@@ -521,6 +521,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Baloon_Face
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 1188
+        width: 165
+        height: 758
+      alignment: 9
+      pivot: {x: 0.51720005, y: 0.84952724}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46745d41641027f4390ddd9c9c020eb4
+      internalID: 1527238700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_Exploded_1
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 1190
+        width: 155
+        height: 743
+      alignment: 9
+      pivot: {x: 0.4845652, y: 0.8666112}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ceaf03aa1b700b499dbc05c13eca412
+      internalID: 1331664497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_Exploded_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1180
+        width: 214
+        height: 789
+      alignment: 9
+      pivot: {x: 0.5010406, y: 0.8260148}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37cebb1f8f98b784481afb1acd0c6e85
+      internalID: 675206631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_Exploded_3
+      rect:
+        serializedVersion: 2
+        x: 1713
+        y: 1189
+        width: 381
+        height: 811
+      alignment: 9
+      pivot: {x: 0.5023648, y: 0.81345564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce12a9ab82139b478432bd61e8f4e2b
+      internalID: -1691091892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_Exploded_4
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 1183
+        width: 399
+        height: 809
+      alignment: 9
+      pivot: {x: 0.49186075, y: 0.76380044}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a3bd9d5d84d02744a946100fecfe295
+      internalID: -911278373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Baloon_Exploded_5
+      rect:
+        serializedVersion: 2
+        x: 2802
+        y: 1155
+        width: 179
+        height: 388
+      alignment: 9
+      pivot: {x: 0.52528423, y: 1.7014654}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ced0434d4e6ea488e3c28b6b89faca
+      internalID: 1035348606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -534,6 +660,12 @@ TextureImporter:
     nameFileIdTable:
       Baloon_1: 574400249
       Baloon_2: -165619934
+      Baloon_Exploded_1: 1331664497
+      Baloon_Exploded_2: 675206631
+      Baloon_Exploded_3: -1691091892
+      Baloon_Exploded_4: -911278373
+      Baloon_Exploded_5: 1035348606
+      Baloon_Face: 1527238700
       Chest: 1305086936
       Head: -20647469
       L_Arm: -276311052

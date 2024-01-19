@@ -378,10 +378,10 @@ TextureImporter:
       name: UI_Skill_Icons_17
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 1539.1666
-        width: 445.83334
-        height: 445.83334
+        x: 2540
+        y: 1542
+        width: 446
+        height: 446
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

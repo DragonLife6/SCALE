@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3016661608433813400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8955474962129592552}
+  - component: {fileID: 7750810330604457795}
+  m_Layer: 0
+  m_Name: ExplosiveBaloonsSpell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8955474962129592552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016661608433813400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7750810330604457795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3016661608433813400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3477fbc2a5c5b4cb13c7f08678e4ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Explosive baloon
+  abilityDescriptions:
+  - test
+  - test
+  - test
+  - test
+  - test
+  - test
+  maxLevel: 5
+  abilityIcon: {fileID: 1527238700, guid: f7cdb1f8e1136074bab4669b3b53918f, type: 3}
+  isPassive: 0
+  projectile: {fileID: 6013746564971225953, guid: 3220689b37707344ea1d198b354147bd, type: 3}
+  damageOnLevel:
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  explosionDelayOnLevel:
+  - 1.5
+  - 1.2
+  - 1.1
+  - 1
+  - 1
+  - 1
+  spawnDelayOnLevel:
+  - 3
+  - 2.8
+  - 2.6
+  - 2.4
+  - 2.2
+  - 2
+  radiusOnLevel:
+  - 1.2
+  - 1.5
+  - 1.8
+  - 2.2
+  - 2.8
+  - 3.5

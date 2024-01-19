@@ -41,6 +41,8 @@ public class DirectedShotScriptable : AbilityBaseScript
                 {
                     DirectedShotProjectile fireball_instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<DirectedShotProjectile>();
                     fireball_instance.SetParameters(newDamage, newSpeed, newSize, critChanceMultiplier, critDamageMultiplier, enemies[i]);
+
+                    yield return new WaitForSeconds(0.05f);
                 }
             }
 

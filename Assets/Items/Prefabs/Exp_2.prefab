@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261f968066d6f9b45b254df1d3d703b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expGained: 10
+  expGained: 15
+  spawnTime: 0
 --- !u!95 &1599748257102346645
 Animator:
   serializedVersion: 5

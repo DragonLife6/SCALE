@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] bool testMode = false;
+
     [SerializeField] float[] newSpawnIntervals;
     [SerializeField] int[] enemySpawnCounts;
     [SerializeField] int[] minEnemyLevels;
@@ -29,7 +31,10 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player").transform;
-        InvokeRepeating("SpawnEnemies", 0.1f, spawnInterval);
+        if (!testMode)
+        {
+            InvokeRepeating("SpawnEnemies", 0.1f, spawnInterval);
+        }
         nextParameterChangeTime = Time.time + changeInterval;
 
         maxEnemies = enemySpawnCounts[currentDifficultyIndex];
@@ -146,6 +151,12 @@ public class EnemyManager : MonoBehaviour
 
     float GetDistance(Transform transform)
     {
-        return Vector3.Distance(player.position, transform.position);
+        if (transform != null)
+        {
+            return Vector3.Distance(player.position, transform.position);
+        } else
+        {
+            return 0f;
+        }
     }
 }

@@ -754,7 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   soulPrefabs:
-  - {fileID: 7784239161389492242, guid: 6f90122d8a8dd22449713a1e41a8a5a0, type: 3}
+  - {fileID: 36804843027193713, guid: a9325a515b81f0b4db55eb89a8e42212, type: 3}
   - {fileID: 3596655940234113570, guid: 275be2ea9cfa27f40b0d25b54d5a413f, type: 3}
   - {fileID: 36804843027193713, guid: a9325a515b81f0b4db55eb89a8e42212, type: 3}
   isRespawnable: 0

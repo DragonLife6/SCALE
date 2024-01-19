@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3364455754289100298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4369749731216378770}
+  - component: {fileID: 3426813178940019827}
+  m_Layer: 0
+  m_Name: DragonSpell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4369749731216378770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364455754289100298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3426813178940019827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364455754289100298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b645db2fe622754390f59e5f6f19821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: Wave Dragon
+  abilityDescriptions:
+  - Test desc
+  - Test desc
+  - Test desc
+  - Test desc
+  - Test desc
+  - Test desc
+  maxLevel: 5
+  abilityIcon: {fileID: -974454686, guid: 6e9039cdda517d641a76d85854071874, type: 3}
+  isPassive: 0
+  projectile: {fileID: 7514639643568277891, guid: 1e4fa5ee50073884bb8800c05f182320, type: 3}
+  damageOnLevel:
+  - 10
+  - 15
+  - 20
+  - 25
+  - 30
+  - 30
+  sizeOnLevel:
+  - 1
+  - 1.2
+  - 1.3
+  - 1.4
+  - 1.5
+  - 1.5
+  spawnDelayOnLevel:
+  - 3
+  - 2.7
+  - 2.5
+  - 2.1
+  - 1.8
+  - 1.8
+  speedOnLevel:
+  - 5
+  - 5.5
+  - 6
+  - 6
+  - 6
+  - 6
