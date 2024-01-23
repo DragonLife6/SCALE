@@ -18,7 +18,27 @@ public class RandomBonusScript : MonoBehaviour
 
     private void SpawnRandomBonus()
     {
-        int randomItem = Random.Range(0, bonusPrefabs.Length);
+        int randomItem;
+        int randomItemPick = Random.Range(0, 100);
+
+        if (randomItemPick < 60) {
+            randomItem = 0;
+        } else if (randomItemPick < 80)
+        {
+            randomItem = 1;
+        } else if (randomItemPick < 95)
+        {
+            randomItem = 2;
+        } else
+        {
+            randomItem = 3;
+        }
+
+        if (randomItem >= bonusPrefabs.Length)
+        {
+            randomItem = 0;
+        }
+
         Instantiate(bonusPrefabs[randomItem], transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

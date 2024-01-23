@@ -12,6 +12,8 @@ public class EnemyMovement : MonoBehaviour
     Vector3 initialScale;
     Animator animator;
 
+    public bool isPaused = false;
+
     [SerializeField] Collider2D attackCollider;
 
     private Transform player;
@@ -26,31 +28,36 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        Vector3 moveDirection = (player.position - transform.position); ;
-        if (deathOnCollision)
+        if (!isPaused)
         {
-            transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
-        } else
-        {
-            float distanceToPlayer = moveDirection.magnitude;
-
-            if (distanceToPlayer > attackDistance)
+            Vector3 moveDirection = (player.position - transform.position); ;
+            if (deathOnCollision)
             {
                 transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
-                attackCollider.enabled = false;
             }
             else
             {
-                animator.SetTrigger("Attack");
-                attackCollider.enabled = true;
+                float distanceToPlayer = moveDirection.magnitude;
+
+                if (distanceToPlayer > attackDistance)
+                {
+                    transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
+                    attackCollider.enabled = false;
+                }
+                else
+                {
+                    animator.SetTrigger("Attack");
+                    attackCollider.enabled = true;
+                }
             }
-        }
-        if(moveDirection.x < 0 && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector3(initialScale.x * -1, initialScale.y, initialScale.z);
-        } else if(moveDirection.x > 0 && transform.localScale.x < 0)
-        {
-            transform.localScale = initialScale;
+            if (moveDirection.x < 0 && transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(initialScale.x * -1, initialScale.y, initialScale.z);
+            }
+            else if (moveDirection.x > 0 && transform.localScale.x < 0)
+            {
+                transform.localScale = initialScale;
+            }
         }
     }
 
@@ -73,10 +80,9 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-
-
     private void OnDestroy()
     {
-        enemyManager.DeleteEnemy(transform);
+        if(transform != null)
+            enemyManager.DeleteEnemy(transform);
     }
 }

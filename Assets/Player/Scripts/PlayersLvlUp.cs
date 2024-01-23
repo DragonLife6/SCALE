@@ -124,6 +124,28 @@ public class PlayersLvlUp : MonoBehaviour
         }
     }
 
+    public void StopAll(bool isStopping)
+    {
+        foreach (var spell in allSpells)
+        {
+            if (!spell.isPassive)
+            {
+                spell.StopSpell(isStopping);
+            }
+        }
+
+        if (allDeletedSpells.Count > 0)
+        {
+            foreach (var spell in allDeletedSpells)
+            {
+                if (!spell.isPassive)
+                {
+                    spell.StopSpell(isStopping);
+                }
+            }
+        }
+    }
+
     private void Start()
     {
         playerDataPath = Path.Combine(Application.persistentDataPath, "playerData.json");

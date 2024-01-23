@@ -28,6 +28,8 @@ public class EnemyManager : MonoBehaviour
     private Transform player;
     private List<Transform> enemies = new List<Transform>();
 
+    bool isStopped = false;
+    
     void Start()
     {
         player = GameObject.Find("Player").transform;
@@ -62,19 +64,22 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= nextParameterChangeTime)
+        if (!isStopped)
         {
-            ChangeParameters();
-            nextParameterChangeTime = Time.time + changeInterval;
-        }
-
-        for (int i = 0; i < enemies.Count; i++)
-        {
-            if (GetDistance(enemies[i]) > maxDistance)
+            if (Time.time >= nextParameterChangeTime)
             {
-                GameObject enemyRef = enemies[i].gameObject;
-                Destroy(enemyRef);
-                SpawnEnemy(enemyRef);
+                ChangeParameters();
+                nextParameterChangeTime = Time.time + changeInterval;
+            }
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (GetDistance(enemies[i]) > maxDistance)
+                {
+                    GameObject enemyRef = enemies[i].gameObject;
+                    Destroy(enemyRef);
+                    SpawnEnemy(enemyRef);
+                }
             }
         }
     }
@@ -93,16 +98,19 @@ public class EnemyManager : MonoBehaviour
 
     void SpawnEnemies()
     {
-        for (int i = 0; i < maxEnemies; i++)
+        if (!isStopped)
         {
-            if(maxEnemyLvl > enemyPrefabs.Length || maxEnemyLvl < minEnemyLvl)
+            for (int i = 0; i < maxEnemies; i++)
             {
-                maxEnemyLvl = enemyPrefabs.Length;
+                if (maxEnemyLvl > enemyPrefabs.Length || maxEnemyLvl < minEnemyLvl)
+                {
+                    maxEnemyLvl = enemyPrefabs.Length;
+                }
+                int randomNum = Random.Range(minEnemyLvl, maxEnemyLvl);
+                Vector3 spawnPosition = GetRandomSpawnPosition();
+                Transform newEnemy = Instantiate(enemyPrefabs[randomNum], spawnPosition, Quaternion.identity).transform;
+                enemies.Add(newEnemy);
             }
-            int randomNum = Random.Range(minEnemyLvl, maxEnemyLvl);
-            Vector3 spawnPosition = GetRandomSpawnPosition();
-            Transform newEnemy = Instantiate(enemyPrefabs[randomNum], spawnPosition, Quaternion.identity).transform;
-            enemies.Add(newEnemy);
         }
     }
 
@@ -126,7 +134,7 @@ public class EnemyManager : MonoBehaviour
         SortList();
         return enemies;
     }
-
+    
     void SortList()
     {
         int minId;
@@ -158,5 +166,17 @@ public class EnemyManager : MonoBehaviour
         {
             return 0f;
         }
+    }
+
+    public void StopAll(bool isPaused)
+    {
+        foreach (Transform t in enemies)
+        {
+            EnemyMovement enemy = t.gameObject.GetComponent<EnemyMovement>();
+            if (enemy != null)
+                enemy.isPaused = isPaused;
+        }
+
+        isStopped = isPaused;
     }
 }

@@ -10,6 +10,9 @@ public class EnemyHealth : MonoBehaviour
     Animator animator;
     [SerializeField] GameObject[] soulPrefabs;
     [SerializeField] bool isRespawnable = true;
+
+    [SerializeField] GameObject damagePopup;
+
     EnemyManager enemyManager;
     public float lastDamageTime;
     public bool spawnedWithManager = true;
@@ -53,9 +56,13 @@ public class EnemyHealth : MonoBehaviour
         if(DetermineCrit(chance))
         {
             health -= damage * power;
+
+            DamagePopupScript.Create(damagePopup, transform.position, Mathf.FloorToInt(damage * power), true);
         } else
         {
             health -= damage;
+
+            DamagePopupScript.Create(damagePopup, transform.position, Mathf.FloorToInt(damage), false);
         }
 
         flashScript.HitFlash(); // Додати візуалізацію для критичного удару
@@ -71,6 +78,9 @@ public class EnemyHealth : MonoBehaviour
     public void GetDamage(float damage)
     {
         health -= damage;
+
+        DamagePopupScript.Create(damagePopup, transform.position, Mathf.FloorToInt(damage), false);
+
         if (health <= 0)
         {
             DeathAndDestroy();

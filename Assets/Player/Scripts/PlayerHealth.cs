@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,11 +12,18 @@ public class PlayerHealth : MonoBehaviour
     private HitFlashScript flashScript;
     private Animator animator;
     public bool isAlive = true;
+    private bool firstDeath = false;
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip heartBeatSoud;
 
     [SerializeField] GameObject deathMenu;
+    [SerializeField] GameObject afterDeathMenu;
     [SerializeField] Collider2D playerCollider2D;
 
     [SerializeField] UI_SliderScript ui_healthBar;
+
+    [SerializeField] TimeStoper timeStoper;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         ui_healthBar.UpdateSlider(health, currentMaxHealth);
         flashScript = GetComponent<HitFlashScript>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void GetHealing(float healAmount)
@@ -46,14 +55,41 @@ public class PlayerHealth : MonoBehaviour
         health -= damage * (1f - protectionCoef);
         ui_healthBar.UpdateSlider(health, currentMaxHealth);
 
+        if (health < currentMaxHealth * 0.3f)
+        {
+            audioSource.PlayOneShot(heartBeatSoud, 0.5f);
+        }
+
         flashScript.HitFlash();
         if (health <= 0) {
+            if(!firstDeath)
+            {
+                timeStoper.StopAllObjects();
+                deathMenu.SetActive(true);
+                playerCollider2D.enabled = false;
+                firstDeath = true;
+            } else
+            {
+                isAlive = false;
+                animator.SetTrigger("Death");
+                Invoke(nameof(StopTime), 3.3f);
+                afterDeathMenu.SetActive(true);
+            }
+        }
+    }
+
+    public void Respawn(bool isRespawning)
+    {
+        if (isRespawning)
+        {
+            health = currentMaxHealth;
+            ui_healthBar.UpdateSlider(health, currentMaxHealth);
+            playerCollider2D.enabled = true;
+            timeStoper.ResumeAllObjects();
+        } else
+        {
             isAlive = false;
             animator.SetTrigger("Death");
-
-            playerCollider2D.enabled = false;
-            deathMenu.SetActive(true);
-
             Invoke(nameof(StopTime), 3.3f);
         }
     }

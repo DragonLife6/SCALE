@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc8f6ae7171bef48b3980573d2ab2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2.3
+  moveSpeed: 1.5
   damage: 10
   deathOnCollision: 1
   attackDistance: 1
@@ -125,6 +125,7 @@ MonoBehaviour:
   - {fileID: 7784239161389492242, guid: 6f90122d8a8dd22449713a1e41a8a5a0, type: 3}
   - {fileID: 3596655940234113570, guid: 275be2ea9cfa27f40b0d25b54d5a413f, type: 3}
   isRespawnable: 1
+  damagePopup: {fileID: 2139387369336442378, guid: 0ce7b4a542ad2204da9e5c680cd5ab84, type: 3}
   lastDamageTime: 0
   spawnedWithManager: 1
 --- !u!70 &545598876786993909

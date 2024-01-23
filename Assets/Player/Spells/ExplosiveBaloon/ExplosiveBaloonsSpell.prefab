@@ -55,14 +55,15 @@ MonoBehaviour:
   maxLevel: 5
   abilityIcon: {fileID: 1527238700, guid: f7cdb1f8e1136074bab4669b3b53918f, type: 3}
   isPassive: 0
+  isBaseSpell: 1
   projectile: {fileID: 6013746564971225953, guid: 3220689b37707344ea1d198b354147bd, type: 3}
   damageOnLevel:
-  - 10
-  - 10
-  - 10
-  - 10
-  - 10
-  - 10
+  - 20
+  - 20
+  - 25
+  - 25
+  - 30
+  - 30
   explosionDelayOnLevel:
   - 1.5
   - 1.2
@@ -72,15 +73,15 @@ MonoBehaviour:
   - 1
   spawnDelayOnLevel:
   - 3
+  - 2.9
   - 2.8
-  - 2.6
-  - 2.4
-  - 2.2
+  - 2.7
+  - 2.5
   - 2
   radiusOnLevel:
-  - 1.2
   - 1.5
-  - 1.8
-  - 2.2
-  - 2.8
+  - 1.7
+  - 1.9
+  - 2.1
+  - 2.3
   - 3.5

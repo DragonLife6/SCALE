@@ -10,6 +10,10 @@ public class ExplosiveBaloonProjectile : MonoBehaviour
     [SerializeField] ParticleSystem explosionCircle;
     [SerializeField] Transform explosionPosition;
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip firstSound;
+    [SerializeField] AudioClip secondSound;
+
     float damage = 0f;
     float size = 1f;
     float explosionDelay = 1f;
@@ -30,7 +34,10 @@ public class ExplosiveBaloonProjectile : MonoBehaviour
         critChance = chance;
         critPower = power;
 
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+
+        audioSource.PlayOneShot(firstSound);
 
         Invoke(nameof(StartAnimation), explosionDelay);
     }
@@ -44,7 +51,8 @@ public class ExplosiveBaloonProjectile : MonoBehaviour
     void StartExplosion()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPosition.position, explosionRadius * size);
-        
+
+        audioSource.PlayOneShot(secondSound);
 
         // Нанести пошкодження ворогам
         foreach (Collider2D collider in colliders)

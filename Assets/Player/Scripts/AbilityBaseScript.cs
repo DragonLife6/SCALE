@@ -20,10 +20,24 @@ public abstract class AbilityBaseScript : MonoBehaviour
     protected float critChanceMultiplier;
     protected float critDamageMultiplier;
 
+    [SerializeField] bool isBaseSpell = false;
+
+
+    public virtual void StopSpell(bool isStopping)
+    {
+        return;
+    }
 
     private void Start()
     {
-        currentLevel = 0;
+        if (isBaseSpell)
+        {
+            Activate();
+        }
+        else
+        {
+            currentLevel = 0;
+        }
     }
 
     public bool LevelUp()
@@ -39,7 +53,8 @@ public abstract class AbilityBaseScript : MonoBehaviour
             if(currentLevel >= maxLevel)
                 return currentLevel >= maxLevel;
         }
-        
+
+        Debug.Log(currentLevel);
         return currentLevel > maxLevel;
     }
 

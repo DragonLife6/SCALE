@@ -568,6 +568,7 @@ MonoBehaviour:
   - {fileID: 8778460787521325140, guid: 1f836f65a4219964595eb7cdab58b086, type: 3}
   - {fileID: 3298660425827672539, guid: 14160d9d48c264740b7bb03d0711f613, type: 3}
   isRespawnable: 0
+  damagePopup: {fileID: 2139387369336442378, guid: 0ce7b4a542ad2204da9e5c680cd5ab84, type: 3}
   lastDamageTime: 0
   spawnedWithManager: 0
 --- !u!114 &8198277459758881432
@@ -612,6 +613,7 @@ MonoBehaviour:
   damage: 20
   deathOnCollision: 0
   attackDistance: 1
+  attackCollider: {fileID: 0}
 --- !u!70 &5341182753616410993
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

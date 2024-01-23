@@ -19,5 +19,16 @@ public class DeathMenuScript : MonoBehaviour
     void Start()
     {
         timerText.text = timer.GetCurrentTime();
+
+        PlayerPrefs.SetFloat("LastTime", timer.GetCurrentSeconds());
+        if(PlayerPrefs.GetFloat("MaxTime") < PlayerPrefs.GetFloat("LastTime"))
+        {
+            PlayerPrefs.SetFloat("MaxTime", PlayerPrefs.GetFloat("LastTime"));
+        }
+    }
+
+    public void OnPlayerDeath()
+    {
+
     }
 }

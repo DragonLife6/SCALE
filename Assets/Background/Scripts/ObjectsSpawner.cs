@@ -13,7 +13,26 @@ public class ObjectsSpawner : MonoBehaviour
 
     private GameObject GetObjectPrefab()
     {
-        return objectPrefabs[Random.Range(0, objectPrefabs.Length)];
+        int objNum;
+        int objProbability = Random.Range(0, 100);
+
+        if(objProbability < 70)
+        {
+            objNum = 0;
+        } else if (objProbability < 90)
+        {
+            objNum = 1;
+        } else
+        {
+            objNum = 2;
+        }
+
+        if(objNum >= objectPrefabs.Length)
+        {
+            objNum = 0;
+        }
+
+        return objectPrefabs[objNum];
     }
 
     private void Start()

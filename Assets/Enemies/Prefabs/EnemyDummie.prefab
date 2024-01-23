@@ -106,6 +106,7 @@ MonoBehaviour:
   - {fileID: 3596655940234113570, guid: 275be2ea9cfa27f40b0d25b54d5a413f, type: 3}
   - {fileID: 36804843027193713, guid: a9325a515b81f0b4db55eb89a8e42212, type: 3}
   isRespawnable: 0
+  damagePopup: {fileID: 2139387369336442378, guid: 0ce7b4a542ad2204da9e5c680cd5ab84, type: 3}
   lastDamageTime: 0
   spawnedWithManager: 0
 --- !u!70 &6673080470231917062

@@ -56,4 +56,19 @@ public class SoulExplosionScriptable : AbilityBaseScript
 
         StartCoroutine(Shoot());
     }
+
+    public override void StopSpell(bool isStopping)
+    {
+        if (isStopping)
+        {
+            StopAllCoroutines();
+        }
+        else
+        {
+            if (currentLevel >= 1)
+            {
+                StartCoroutine(Shoot());
+            }
+        }
+    }
 }

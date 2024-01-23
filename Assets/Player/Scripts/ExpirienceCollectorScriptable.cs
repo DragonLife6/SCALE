@@ -8,6 +8,7 @@ public class ExpirienceCollectorScriptable : AbilityBaseScript
     CircleCollider2D collider2d;
     [SerializeField] float[] colliderRadiusOnLevel;
     float currentRadius = 0.5f;
+    AudioSource audioSource;
 
     string targetTag = "ExpItem"; // Тег цільових об'єктів
     float moveSpeed = 10f; // Швидкість руху
@@ -17,7 +18,8 @@ public class ExpirienceCollectorScriptable : AbilityBaseScript
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayersLvlUp>();
-        collider2d = GetComponent<CircleCollider2D>();   
+        collider2d = GetComponent<CircleCollider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void Activate()
@@ -34,6 +36,7 @@ public class ExpirienceCollectorScriptable : AbilityBaseScript
 
     public void AddExpirience(float amount)
     {
+        audioSource.Play();
         player.AddExpirience(amount);
     }
 
