@@ -22,6 +22,10 @@ public abstract class AbilityBaseScript : MonoBehaviour
 
     [SerializeField] bool isBaseSpell = false;
 
+    public virtual void OnMaxLevel(int variant)
+    {
+        return;
+    }
 
     public virtual void StopSpell(bool isStopping)
     {
@@ -54,7 +58,6 @@ public abstract class AbilityBaseScript : MonoBehaviour
                 return currentLevel >= maxLevel;
         }
 
-        Debug.Log(currentLevel);
         return currentLevel > maxLevel;
     }
 
@@ -73,6 +76,7 @@ public abstract class AbilityBaseScript : MonoBehaviour
         }
     }
 
+    public bool GetIsMaxLevel() { return maxLevel <= currentLevel; }
     public string GetName() { return abilityName; }
     public string GetDescriptionOnCurrentLevel() { return abilityDescriptions[currentLevel]; }
     public string GetDescriptionOnLevel(int level) { return abilityDescriptions[level]; }

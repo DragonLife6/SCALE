@@ -70,6 +70,7 @@ public class PlayersLvlUp : MonoBehaviour
             File.WriteAllText(playerDataPath, json);
 
             Debug.Log("Saving!");
+            LoadPlayerData();
         }
     }
 
@@ -202,11 +203,21 @@ public class PlayersLvlUp : MonoBehaviour
         ui_expirienceBar.UpdateSlider(currentExp, currentExpForLevel);
         Shuffle(allSpells);
     }
+    public void SkillMaxLevelUp(int skillId, int skillIdVariant)
+    {
+        allSpells[skillId].OnMaxLevel(skillIdVariant);
+        
+        allDeletedSpells.Add(allSpells[skillId]);
+        allSpells.Remove(allSpells[skillId]);
+
+        Shuffle(allSpells);
+    }
+    
 
     public void SkillLevelUp(int skillId)
     {
         bool maxLevel = allSpells[skillId].LevelUp();
-        if(maxLevel)
+        if(maxLevel && allSpells[skillId].isPassive)
         {
             allDeletedSpells.Add(allSpells[skillId]);
             allSpells.Remove(allSpells[skillId]);

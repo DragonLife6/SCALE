@@ -12,14 +12,24 @@ public class AbilitiesManagerScript : MonoBehaviour
     [SerializeField] GameObject player;
 
     [SerializeField] GameObject levelUpCanvas;
+    [SerializeField] GameObject maxLevelPanel;
+
+    [SerializeField] Color passiveSkillIconColor;
+    [SerializeField] Color activeSkillIconColor;
+
+    [SerializeField] Image[] maxLevelPanelImages;
 
     [SerializeField] TMP_Text[] variantsTitle;
     [SerializeField] TMP_Text[] variantsDescription;
     [SerializeField] TMP_Text[] variantsLevel;
     [SerializeField] Image[] variantsImages;
 
+    int varianButtonNum = 0;
+    bool[] variantMaxLevel = new bool[] { false, false, false };
+
     private void Start()
     {
+        maxLevelPanel.SetActive(false);
         levelUpCanvas.SetActive(false);
         target = player.GetComponent<Transform>();
         playerLvlUpScript = player.GetComponent<PlayersLvlUp>();
@@ -35,8 +45,29 @@ public class AbilitiesManagerScript : MonoBehaviour
 
     public void VariantClicked(int buttonNum)
     {
-        playerLvlUpScript.SkillLevelUp(buttonNum);
+        varianButtonNum = buttonNum;
 
+        if (variantMaxLevel[buttonNum])
+        {
+            foreach (var image in maxLevelPanelImages)
+            {
+                image.sprite = variantsImages[buttonNum].sprite;
+            }
+            
+            maxLevelPanel.SetActive(true);
+        } else
+        {
+            playerLvlUpScript.SkillLevelUp(buttonNum); 
+            Time.timeScale = 0.1f;
+            StartCoroutine(SmoothTimeScaleIncrease());
+            levelUpCanvas.SetActive(false);
+        }
+    }
+
+    public void MaxLevelVariantClicked(int buttonNum)
+    {
+        maxLevelPanel.SetActive(false);
+        playerLvlUpScript.SkillMaxLevelUp(varianButtonNum, buttonNum);
         Time.timeScale = 0.1f;
         StartCoroutine(SmoothTimeScaleIncrease());
         levelUpCanvas.SetActive(false);
@@ -80,13 +111,31 @@ public class AbilitiesManagerScript : MonoBehaviour
     {
         StopAllCoroutines();
         Time.timeScale = 0f;
+        
         levelUpCanvas.SetActive(true);
 
         for (int i = 0; i < 3; i++) 
         {
+            if (spells[i].isPassive)
+            {
+                variantMaxLevel[i] = false;
+                variantsImages[i].color = passiveSkillIconColor;
+            } else
+            {
+                variantMaxLevel[i] = spells[i].GetIsMaxLevel();
+                variantsImages[i].color = activeSkillIconColor;
+            }
+            if (variantMaxLevel[i])
+            { 
+                variantsLevel[i].SetText("Max");
+                variantsDescription[i].SetText("");
+            }
+            else
+            {
+                variantsLevel[i].SetText((spells[i].GetCurrentLevel() + 1).ToString());
+                variantsDescription[i].SetText(spells[i].GetDescriptionOnCurrentLevel());
+            }
             variantsTitle[i].SetText(spells[i].GetName());
-            variantsLevel[i].SetText((spells[i].GetCurrentLevel() + 1).ToString());
-            variantsDescription[i].SetText(spells[i].GetDescriptionOnCurrentLevel());
             variantsImages[i].sprite = spells[i].GetIcon();
         }
     }

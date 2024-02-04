@@ -53,8 +53,9 @@ MonoBehaviour:
   - Test desc
   - Test desc
   maxLevel: 5
-  abilityIcon: {fileID: -974454686, guid: 6e9039cdda517d641a76d85854071874, type: 3}
+  abilityIcon: {fileID: 2054952003, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
   isPassive: 0
+  isBaseSpell: 0
   projectile: {fileID: 7514639643568277891, guid: 1e4fa5ee50073884bb8800c05f182320, type: 3}
   damageOnLevel:
   - 10

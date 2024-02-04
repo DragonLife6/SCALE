@@ -4,16 +4,34 @@ using UnityEngine;
 
 public class ExplosiveBaloonScriptable : AbilityBaseScript
 {
-    [SerializeField] GameObject projectile;
+    [SerializeField] GameObject basicProjectile;
+    [SerializeField] GameObject secondProjectile;
+    [SerializeField] GameObject thirdProjectile;
     [SerializeField] float[] damageOnLevel;
     [SerializeField] float[] explosionDelayOnLevel;
     [SerializeField] float[] spawnDelayOnLevel;
     [SerializeField] float[] radiusOnLevel;
 
+    GameObject projectile;
+
     float newDamage = 0f;
     float newSpawnDelay = 0f;
     float newExplodeDelay = 0f;
     float newRadius = 0f;
+
+    public override void OnMaxLevel(int variant)
+    {
+        if(variant == 0)
+        {
+            newRadius = radiusOnLevel[currentLevel - 1] * 1.5f;
+        } else if(variant == 1)
+        {
+            projectile = secondProjectile;
+        } else
+        {
+            projectile = thirdProjectile;
+        }
+    }
 
     public override void UpdateAbility(int lvl)
     {
@@ -46,6 +64,7 @@ public class ExplosiveBaloonScriptable : AbilityBaseScript
     public override void Activate()
     {
         currentLevel = 1;
+        projectile = basicProjectile;
         UpdateAbility(currentLevel);
 
         StartCoroutine(Shoot());

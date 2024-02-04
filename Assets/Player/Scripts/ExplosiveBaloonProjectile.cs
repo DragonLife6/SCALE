@@ -14,13 +14,13 @@ public class ExplosiveBaloonProjectile : MonoBehaviour
     [SerializeField] AudioClip firstSound;
     [SerializeField] AudioClip secondSound;
 
-    float damage = 0f;
-    float size = 1f;
+    protected float damage = 0f;
+    protected float size = 1f;
     float explosionDelay = 1f;
     float explosionRadius = 1f;
 
-    float critChance = 0f;
-    float critPower = 1f;
+    protected float critChance = 0f;
+    protected float critPower = 1f;
 
     public void SetParameters(float dmg, float sz, float radius, float delay, float chance, float power)
     {
@@ -48,7 +48,12 @@ public class ExplosiveBaloonProjectile : MonoBehaviour
         Invoke(nameof(StartExplosion), 0.07f);
     }
 
-    void StartExplosion()
+    public virtual void StartExplosion()
+    {
+        ExplosionEffects();
+    }
+
+    protected void ExplosionEffects()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPosition.position, explosionRadius * size);
 

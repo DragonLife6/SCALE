@@ -5,6 +5,8 @@ using UnityEngine.SocialPlatforms;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] AdsRewardedScript ads;
+
     public float maxHealth = 100f;
     private float health;
     private float currentMaxHealth;
@@ -65,6 +67,7 @@ public class PlayerHealth : MonoBehaviour
             if(!firstDeath)
             {
                 timeStoper.StopAllObjects();
+                ads.LoadAd();
                 deathMenu.SetActive(true);
                 playerCollider2D.enabled = false;
                 firstDeath = true;

@@ -53,10 +53,12 @@ MonoBehaviour:
   - test
   - test
   maxLevel: 5
-  abilityIcon: {fileID: 1527238700, guid: f7cdb1f8e1136074bab4669b3b53918f, type: 3}
+  abilityIcon: {fileID: -137772165, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
   isPassive: 0
   isBaseSpell: 1
-  projectile: {fileID: 6013746564971225953, guid: 3220689b37707344ea1d198b354147bd, type: 3}
+  basicProjectile: {fileID: 6013746564971225953, guid: 3220689b37707344ea1d198b354147bd, type: 3}
+  secondProjectile: {fileID: 6099768583501336647, guid: 3efd681df6f0bb142bba0a46469ff71f, type: 3}
+  thirdProjectile: {fileID: 1275825324778795727, guid: 82367de3b99faa349b32834df759f167, type: 3}
   damageOnLevel:
   - 20
   - 20

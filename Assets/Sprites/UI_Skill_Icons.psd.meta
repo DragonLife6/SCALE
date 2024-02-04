@@ -119,6 +119,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -395,6 +408,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_0
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 1524
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c715b69c4a7e64d8474ba77aef5e0a
+      internalID: 2054952003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Skill_Icons_1
+      rect:
+        serializedVersion: 2
+        x: 2020
+        y: 1529
+        width: 446
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a0ac75404103b45a62f8e76cb87077
+      internalID: -137772165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -406,6 +461,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      UI_Skill_Icons_0: 2054952003
+      UI_Skill_Icons_1: -137772165
       UI_Skill_Icons_11: 1886396783
       UI_Skill_Icons_12: -1643730763
       UI_Skill_Icons_13: -1026035709
