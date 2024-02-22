@@ -1,15 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DarkAuraScriptable : AbilityBaseScript
 {
     [SerializeField] GameObject circlePrefab;
+    [SerializeField] GameObject protectionPrefab;
+    [SerializeField] GameObject wavePrefab;
     [SerializeField] GameObject backgroundPrefab;
-    DarkAuraCircle circle;
+    DarkAuraCircleBase circle;
+    GameObject circleObject;
     SpriteRenderer background;
 
     [SerializeField] float[] damageOnLevel;
@@ -22,11 +21,45 @@ public class DarkAuraScriptable : AbilityBaseScript
     float newDelay;
     float newSize;
 
+    public override void OnMaxLevel(int variant)
+    {
+        if (variant == 0)
+        {
+            newDelay /= 1.5f;
+            newDamage *= 1.5f;
+        }
+        else if (variant == 1)
+        {
+            Destroy(circleObject);
+            StartCoroutine(waveVariantRoutine());
+        }
+        else
+        {
+            Destroy(circleObject);
+
+            circleObject = Instantiate(protectionPrefab, transform);
+            circle = circleObject.GetComponent<DarkAuraCircleBase>();
+
+            circle.SetParameters(newDamage * 0.5f, newDelay * 2f, newSize * 0.7f, critChanceMultiplier, critDamageMultiplier);
+        }
+    }
+
+    IEnumerator waveVariantRoutine()
+    {
+        while (true)
+        {
+            circle = Instantiate(wavePrefab, transform).GetComponent<DarkAuraCircleBase>();
+            circle.SetParameters(newDamage, newDelay, newSize, critChanceMultiplier, critDamageMultiplier);
+
+            yield return new WaitForSeconds(newDelay * 15f);
+        }
+    }
 
     public override void Activate()
     {
         background = Instantiate(backgroundPrefab, transform).GetComponent<SpriteRenderer>();
-        circle = Instantiate(circlePrefab, transform).GetComponent<DarkAuraCircle>();
+        circleObject = Instantiate(circlePrefab, transform);
+        circle = circleObject.GetComponent<DarkAuraCircleBase>();
         
         currentLevel = 1;
         UpdateAbility(currentLevel);

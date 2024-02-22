@@ -5,11 +5,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class SpinningProjectile : MonoBehaviour
 {
-    float damage = 0f;
-    float size = 1f;
+    protected float damage = 0f;
+    protected float size = 1f;
 
-    float critChance = 0f;
-    float critPower = 1f;
+    protected float critChance = 0f;
+    protected float critPower = 1f;
 
     public void SetParameters(float dmg, float sz, float chance, float power)
     {
@@ -24,13 +24,17 @@ public class SpinningProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Нанесення пошкодження гравцю при контакті
+        OnTrigger(other);
+    }
+
+    protected virtual void OnTrigger(Collider2D other)
+    {
         if (other.CompareTag("Enemy"))
         {
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.GetDamage(damage, critChance, critPower);
+                try { enemyHealth.GetDamage(damage, critChance, critPower); } catch {}
             }
         }
     }

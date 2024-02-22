@@ -5,13 +5,19 @@ using UnityEngine;
 public class RandomBonusScript : MonoBehaviour
 {
     [SerializeField] GameObject[] bonusPrefabs;
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            // Add animation
-            SpawnRandomBonus();
+            animator.Play("Open");
+            Invoke(nameof(SpawnRandomBonus), 0.5f);
         }
     }
 
@@ -40,6 +46,6 @@ public class RandomBonusScript : MonoBehaviour
         }
 
         Instantiate(bonusPrefabs[randomItem], transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 }

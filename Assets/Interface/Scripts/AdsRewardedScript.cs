@@ -52,6 +52,11 @@ public class AdsRewardedScript : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public void OnUnityAdsShowClick(string placementId)
     {
         print("Ads Show Click!");
+        if (placementId.Equals(adUnitId))
+        {
+            print("Reward after clicking!");
+            restartScript.OnConfirmPressed();
+        }
     }
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)

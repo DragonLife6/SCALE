@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class DragonSpellScriptable : AbilityBaseScript
 {
-    [SerializeField] GameObject projectile;
+    PlayerMovement player;
+    GameObject projectile;
+    [SerializeField] GameObject basicProjectile;
+    [SerializeField] GameObject forwardProjectile;
+    [SerializeField] GameObject archProjectile;
     [SerializeField] float[] damageOnLevel;
     [SerializeField] float[] sizeOnLevel;
     [SerializeField] float[] spawnDelayOnLevel;
@@ -14,6 +18,27 @@ public class DragonSpellScriptable : AbilityBaseScript
     float newSize = 0f;
     float newSpawnDelay = 0f;
     float newSpeed = 0f;
+    int count = 1;
+
+    bool isSecondVariant = false;
+    bool isThirdVariant = false;
+
+    public override void OnMaxLevel(int variant)
+    {
+        if (variant == 0)
+        {
+            newSize *= 1.5f;
+        } else if (variant == 1)
+        {
+            count++;
+            isSecondVariant = true;
+            projectile = forwardProjectile;
+        } else
+        {
+            isThirdVariant = true;
+            projectile = archProjectile;
+        }
+    }
 
     public override void UpdateAbility(int lvl)
     {
@@ -25,12 +50,26 @@ public class DragonSpellScriptable : AbilityBaseScript
 
     private IEnumerator Shoot()
     {
+        float projectileRotation = 0;
         while (true)
         {
-            float projectileRotation = Random.Range(0f, 360f);
-            DragonSpellProjectile fireball_instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<DragonSpellProjectile>();
-            fireball_instance.SetParameters(newDamage, newSpeed, newSize, critChanceMultiplier, critDamageMultiplier, projectileRotation);
+            for (int i = 0; i < count; i++)
+            {
+                if(isSecondVariant || isThirdVariant)
+                {
+                    projectileRotation = Random.Range(0f, 360f);
+                } else
+                {
+                    if (player.getMovementAngle() != 0)
+                    {
+                        projectileRotation = player.getMovementAngle();
+                    }
+                }
 
+                DragonSpellProjectile fireball_instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<DragonSpellProjectile>();
+                fireball_instance.SetParameters(newDamage, newSpeed, newSize, critChanceMultiplier, critDamageMultiplier, projectileRotation);
+                yield return new WaitForSeconds(0.1f);
+            }
             yield return new WaitForSeconds(newSpawnDelay);
         }
     }
@@ -38,7 +77,9 @@ public class DragonSpellScriptable : AbilityBaseScript
     public override void Activate()
     {
         currentLevel = 1;
+        projectile = basicProjectile;
         UpdateAbility(currentLevel);
+        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         StartCoroutine(Shoot());
     }

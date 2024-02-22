@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7800453371658856470}
   - component: {fileID: 2172629400964296412}
   m_Layer: 0
-  m_Name: DirectedShot
+  m_Name: DirectedShotSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,20 +44,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d5e0f26e6328049b107bc105a66945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Directed
+  abilityName: Misty Arrow
   abilityDescriptions:
-  - Directed shot lvl 1
-  - Directed shot lvl 2
-  - Directed shot lvl 3
-  - Directed shot lvl 4
-  - Directed shot lvl 5
-  - Directed shot lvl 6
-  - Directed shot lvl 7
-  - Directed shot lvl 8
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
+  - Strikes the nearest enemy or enemies with a misty arrow, dealing significant
+    damage
   maxLevel: 7
   abilityIcon: {fileID: -2012448028, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames:
+  - Eternal Misty Arrow
+  - Misty Fireball
+  - Misty Lightning
+  variantsDescriptions:
+  - Same but stronger
+  - Explosive fireball
+  - Lightning with radius attack
+  variantsImages: []
   isPassive: 0
-  projectile: {fileID: 8586998824991329508, guid: 1a8a1f9f0c87cc84a9c9f4a588b21926, type: 3}
+  isBaseSpell: 1
+  maxDistance: 7
+  basicProjectile: {fileID: 8586998824991329508, guid: 1a8a1f9f0c87cc84a9c9f4a588b21926, type: 3}
+  lightningProjectile: {fileID: 8249520030501322160, guid: 10ead268851b0d54fbfdc4137435a981, type: 3}
+  fireProjectile: {fileID: 4182914090129333381, guid: 01eedc2b958800642a2a439648f4a486, type: 3}
   damageOnLevel:
   - 10
   - 15

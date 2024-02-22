@@ -45,21 +45,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdfc83327d5704418ff9462734ed4ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Spin
+  abilityName: 'Night Vortex '
   abilityDescriptions:
-  - Spin lbl 1
-  - Spin lbl 2
-  - Spin lbl 3
-  - Spin lbl 4
-  - Spin lbl 5
-  - Spin lbl 6
-  - Spin lbl 7
-  - Spin lbl 7
-  - Spin lbl 7
+  - 'Orbs that spin around you and deal damage to enemies on contact '
+  - 'Orbs that spin around you and deal damage to enemies on contact '
+  - 'Orbs that spin around you and deal damage to enemies on contact '
+  - 'Orbs that spin around you and deal damage to enemies on contact '
+  - 'Orbs that spin around you and deal damage to enemies on contact '
+  - 'Orbs that spin around you and deal damage to enemies on contact '
   maxLevel: 5
   abilityIcon: {fileID: 2029652016, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames:
+  - 'Eternal Night Vortex '
+  - 'Blasting Vortex '
+  - 'Dual Night Vortex '
+  variantsDescriptions:
+  - Basic spell +5 orbs
+  - Orbs wiil explode on impact and respawn after delay
+  - Double count of the orbs and rotation speed
+  variantsImages:
+  - {fileID: -801989052, guid: 91c2188e380e5bf4781b11dab22bd8d5, type: 3}
   isPassive: 0
-  projectile: {fileID: 8589018301590865847, guid: 2ba5a4c43cc5ba94987e70ec21bd3043, type: 3}
+  isBaseSpell: 0
+  basicProjectile: {fileID: 8589018301590865847, guid: 2ba5a4c43cc5ba94987e70ec21bd3043, type: 3}
+  explosiveProjectile: {fileID: 6486818901050015960, guid: 84d7b9c6664d0054ab6229d53936609c, type: 3}
+  secondLayerProjectile: {fileID: 5459794899451415403, guid: 6ad5fbf77ec62bf4d8297551ab506834, type: 3}
   damageOnLevel:
   - 10
   - 12
@@ -89,6 +99,7 @@ MonoBehaviour:
   - 2
   - 3
   countOnLevel: 020000000300000004000000050000000600000006000000
+  secondLayerPrefab: {fileID: 899269969650587883, guid: b52853a3cf14be24a9f793de826d572b, type: 3}
 --- !u!50 &-3237562664512959762
 Rigidbody2D:
   serializedVersion: 4

@@ -44,18 +44,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbd0e1166282a642993f66447d2f346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Ground Hand
+  abilityName: 'Demonic Grasp '
   abilityDescriptions:
-  - Test 1
-  - Test 2
-  - Test 3
-  - Test 4
-  - Test 5
-  - Test 6
+  - 'Summons claws that repel enemies within a certain radius and deal damage to
+    them '
+  - 'Summons claws that repel enemies within a certain radius and deal damage to
+    them '
+  - 'Summons claws that repel enemies within a certain radius and deal damage to
+    them '
+  - 'Summons claws that repel enemies within a certain radius and deal damage to
+    them '
+  - 'Summons claws that repel enemies within a certain radius and deal damage to
+    them '
+  - 'Summons claws that repel enemies within a certain radius and deal damage to
+    them '
   maxLevel: 5
   abilityIcon: {fileID: 1998522666, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames:
+  - 'Eternal Demonic Grasp '
+  - 'Demonic Repulsion '
+  - 'Demonic Wormhole '
+  variantsDescriptions:
+  - Same but stronger
+  - NOT WORKING YET
+  - 'Summons void that slow enemies within a certain radius and deal damage to them '
+  variantsImages: []
   isPassive: 0
+  isBaseSpell: 0
   projectile: {fileID: 2856988201330228344, guid: 701ab4e08cd6cc2489c0ecf80e841b76, type: 3}
+  voidProjectile: {fileID: 1789670231310127590, guid: 82d964aecc677dc4a8328593137db81d, type: 3}
+  secondProjectile: {fileID: 2856988201330228344, guid: 701ab4e08cd6cc2489c0ecf80e841b76, type: 3}
   handBase: {fileID: 2554116979570506899, guid: 280e2b9f8df009f4093c2adde205cde2, type: 3}
   damageOnLevel:
   - 25

@@ -16,6 +16,9 @@ public class PlayerHealth : MonoBehaviour
     public bool isAlive = true;
     private bool firstDeath = false;
 
+    int protectionCount = 0;
+    [SerializeField] GameObject[] protectionImages;
+
     AudioSource audioSource;
     [SerializeField] AudioClip heartBeatSoud;
 
@@ -38,6 +41,13 @@ public class PlayerHealth : MonoBehaviour
         flashScript = GetComponent<HitFlashScript>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        Invoke(nameof(AdsLoading), 10f);
+    }
+
+    private void AdsLoading()
+    {
+        ads.LoadAd();
     }
 
     public void GetHealing(float healAmount)
@@ -52,31 +62,63 @@ public class PlayerHealth : MonoBehaviour
         ui_healthBar.UpdateSlider(health, currentMaxHealth);
     }
 
-    public void GetDamage(float damage)
+    public void SetProtection(int count, int maxCount)
     {
-        health -= damage * (1f - protectionCoef);
-        ui_healthBar.UpdateSlider(health, currentMaxHealth);
+        protectionCount += count;
 
-        if (health < currentMaxHealth * 0.3f)
+        if (protectionCount > maxCount)
         {
-            audioSource.PlayOneShot(heartBeatSoud, 0.5f);
+            protectionCount = maxCount;
         }
 
-        flashScript.HitFlash();
-        if (health <= 0) {
-            if(!firstDeath)
+        foreach (GameObject obj in protectionImages)
+        {
+            obj.SetActive(false);
+        }
+
+        if (protectionImages.Length >= protectionCount)
+        {
+            protectionImages[protectionCount - 1].SetActive(true);
+        }
+    }
+
+    public void GetDamage(float damage)
+    {
+        if (protectionCount <= 0)
+        {
+            health -= damage * (1f - protectionCoef);
+            ui_healthBar.UpdateSlider(health, currentMaxHealth);
+
+            if (health < currentMaxHealth * 0.3f)
             {
-                timeStoper.StopAllObjects();
-                ads.LoadAd();
-                deathMenu.SetActive(true);
-                playerCollider2D.enabled = false;
-                firstDeath = true;
-            } else
+                audioSource.PlayOneShot(heartBeatSoud, 0.5f);
+            }
+
+            flashScript.HitFlash();
+            if (health <= 0)
             {
-                isAlive = false;
-                animator.SetTrigger("Death");
-                Invoke(nameof(StopTime), 3.3f);
-                afterDeathMenu.SetActive(true);
+                if (!firstDeath)
+                {
+                    timeStoper.StopAllObjects();
+                    deathMenu.SetActive(true);
+                    playerCollider2D.enabled = false;
+                    firstDeath = true;
+                }
+                else
+                {
+                    isAlive = false;
+                    animator.SetTrigger("Death");
+                    Invoke(nameof(StopTime), 3.3f);
+                    afterDeathMenu.SetActive(true);
+                }
+            }
+        } else
+        {
+            protectionImages[protectionCount - 1].SetActive(false);
+            protectionCount--;
+            if (protectionCount > 0)
+            {
+                protectionImages[protectionCount - 1].SetActive(true);
             }
         }
     }

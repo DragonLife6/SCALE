@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     private float health;
     Animator animator;
     [SerializeField] GameObject[] soulPrefabs;
-    [SerializeField] bool isRespawnable = true;
+    // [SerializeField] bool isRespawnable = true;
 
     [SerializeField] GameObject damagePopup;
 
@@ -30,13 +30,13 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyManager.AddEnemy(transform);
         }
-
+        /*
         if (isRespawnable)
         {
             float randomRespawnDelay = Random.Range(100, 300) / 10f;
 
             Invoke(nameof(Respawn), randomRespawnDelay);
-        }
+        }*/
     }
 
     private bool DetermineCrit(float chance)

@@ -78,7 +78,8 @@ public class EnemyManager : MonoBehaviour
                 {
                     GameObject enemyRef = enemies[i].gameObject;
                     Destroy(enemyRef);
-                    SpawnEnemy(enemyRef);
+                    enemies.Remove(enemies[i]);
+                    SpawnEnemy(enemyPrefabs[minEnemyLvl]);
                 }
             }
         }
@@ -172,9 +173,12 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (Transform t in enemies)
         {
-            EnemyMovement enemy = t.gameObject.GetComponent<EnemyMovement>();
-            if (enemy != null)
-                enemy.isPaused = isPaused;
+            if (t != null)
+            {
+                EnemyMovement enemy = t.gameObject.GetComponent<EnemyMovement>();
+                if (enemy != null)
+                    enemy.isPaused = isPaused;
+            }
         }
 
         isStopped = isPaused;

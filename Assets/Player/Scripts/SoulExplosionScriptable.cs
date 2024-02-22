@@ -7,7 +7,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class SoulExplosionScriptable : AbilityBaseScript
 {
-    [SerializeField] GameObject[] projectilePrefabs;
+    [SerializeField] GameObject[] baseProjectilePrefabs;
+    [SerializeField] GameObject[] ricosheteProjectilePrefabs;
+    [SerializeField] GameObject[] riftProjectilePrefabs;
+    [SerializeField] GameObject riftCenterPrefab;
+
+    GameObject[] projectilePrefabs;
     [SerializeField] float[] damageOnLevel;
     [SerializeField] float[] delayOnLevel;
     [SerializeField] int[] countOnLevel;
@@ -20,13 +25,40 @@ public class SoulExplosionScriptable : AbilityBaseScript
     float newSpeed;
     float newSize;
 
+    bool isRift = false;
+
+    public override void OnMaxLevel(int variant)
+    {
+        if (variant == 0)
+        {
+            newDelay /= 1.5f;
+            newDamage *= 1.2f;
+            newCount++;
+        }
+        else if (variant == 1)
+        {
+            projectilePrefabs = ricosheteProjectilePrefabs;
+        }
+        else
+        {
+            newDelay *= 1.5f;
+            newDamage /= 2f;
+            newCount = Mathf.CeilToInt(newCount / 1.5f);
+            projectilePrefabs = riftProjectilePrefabs;
+            isRift = true;
+        }
+    }
+
     public override void UpdateAbility(int lvl)
     {
-        newDamage = damageOnLevel[lvl - 1] * damageMultiplier;
-        newCount = countOnLevel[lvl - 1] + countMultiplier;
-        newDelay = delayOnLevel[lvl - 1] * delayMultiplier;
-        newSpeed = speedOnLevel[lvl - 1];
-        newSize = sizeOnLevel[lvl - 1] * sizeMultiplier;
+        if (currentLevel < maxLevel)
+        {
+            newDamage = damageOnLevel[lvl - 1] * damageMultiplier;
+            newCount = countOnLevel[lvl - 1] + countMultiplier;
+            newDelay = delayOnLevel[lvl - 1] * delayMultiplier;
+            newSpeed = speedOnLevel[lvl - 1];
+            newSize = sizeOnLevel[lvl - 1] * sizeMultiplier;
+        }
     }
 
     private IEnumerator Shoot()
@@ -35,6 +67,11 @@ public class SoulExplosionScriptable : AbilityBaseScript
         {
             float projectileRotation;
             float randomOffset = Random.Range(0f, 90f);
+
+            if(isRift)
+            {
+                Destroy(Instantiate(riftCenterPrefab, transform.position, Quaternion.identity), 3f);
+            }
             for (int i = 0; i < newCount; i++)
             {
                 projectileRotation = (360 / newCount) * i + randomOffset;
@@ -50,6 +87,7 @@ public class SoulExplosionScriptable : AbilityBaseScript
 
     public override void Activate()
     {
+        projectilePrefabs = baseProjectilePrefabs;
         currentLevel = 1;
 
         UpdateAbility(currentLevel);

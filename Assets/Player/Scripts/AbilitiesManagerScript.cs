@@ -17,7 +17,10 @@ public class AbilitiesManagerScript : MonoBehaviour
     [SerializeField] Color passiveSkillIconColor;
     [SerializeField] Color activeSkillIconColor;
 
+    [SerializeField] TMP_Text maxLevelPanelTitle;
     [SerializeField] Image[] maxLevelPanelImages;
+    [SerializeField] TMP_Text maxLevelPanelVariantTitle;
+    [SerializeField] TMP_Text maxLevelPanelVariantDescription;
 
     [SerializeField] TMP_Text[] variantsTitle;
     [SerializeField] TMP_Text[] variantsDescription;
@@ -25,7 +28,10 @@ public class AbilitiesManagerScript : MonoBehaviour
     [SerializeField] Image[] variantsImages;
 
     int varianButtonNum = 0;
+    int maxVariantButtonNum = 0;
     bool[] variantMaxLevel = new bool[] { false, false, false };
+    AbilityBaseScript[] currentAbilities;
+
 
     private void Start()
     {
@@ -49,6 +55,9 @@ public class AbilitiesManagerScript : MonoBehaviour
 
         if (variantMaxLevel[buttonNum])
         {
+            maxLevelPanelTitle.text = variantsTitle[buttonNum].text;
+            maxLevelPanelVariantTitle.text = variantsTitle[buttonNum].text;
+            maxLevelPanelVariantDescription.text = variantsDescription[buttonNum].text;
             foreach (var image in maxLevelPanelImages)
             {
                 image.sprite = variantsImages[buttonNum].sprite;
@@ -66,8 +75,16 @@ public class AbilitiesManagerScript : MonoBehaviour
 
     public void MaxLevelVariantClicked(int buttonNum)
     {
+        maxVariantButtonNum = buttonNum;
+
+        maxLevelPanelVariantTitle.text = currentAbilities[varianButtonNum].GetVariantName(buttonNum);
+        maxLevelPanelVariantDescription.text = currentAbilities[varianButtonNum].GetVariantDescription(buttonNum);
+    }
+
+    public void ConfirmMaxLevelClicked()
+    {
         maxLevelPanel.SetActive(false);
-        playerLvlUpScript.SkillMaxLevelUp(varianButtonNum, buttonNum);
+        playerLvlUpScript.SkillMaxLevelUp(varianButtonNum, maxVariantButtonNum);
         Time.timeScale = 0.1f;
         StartCoroutine(SmoothTimeScaleIncrease());
         levelUpCanvas.SetActive(false);
@@ -113,7 +130,7 @@ public class AbilitiesManagerScript : MonoBehaviour
         Time.timeScale = 0f;
         
         levelUpCanvas.SetActive(true);
-
+        currentAbilities = spells;
         for (int i = 0; i < 3; i++) 
         {
             if (spells[i].isPassive)

@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55158809b07a33e47939cbca0fa8bcb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Exp Collector
+  abilityName: Ghastly Harvest
   abilityDescriptions:
-  - Radius = 1.2
+  - Increases item and experience pickup radius, making it easier for you to gather
+    resources
   - Radius = 1.5
   - Radius = 1.8
   - Radius = 2
@@ -57,6 +58,9 @@ MonoBehaviour:
   - Radius = 2.8
   maxLevel: 5
   abilityIcon: {fileID: 1886396783, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames: []
+  variantsDescriptions: []
+  variantsImages: []
   isPassive: 1
   isBaseSpell: 0
   colliderRadiusOnLevel:

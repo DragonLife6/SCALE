@@ -22,12 +22,15 @@ public class ObjectsSpawner : MonoBehaviour
         } else if (objProbability < 90)
         {
             objNum = 1;
-        } else
+        } else if (objProbability < 97)
         {
             objNum = 2;
+        } else 
+        {
+            objNum = 3;
         }
 
-        if(objNum >= objectPrefabs.Length)
+        if (objNum >= objectPrefabs.Length)
         {
             objNum = 0;
         }

@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b13f7dfb76c52349ab9bfa48f8d1c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Damage
+  abilityName: Abyssal Power
   abilityDescriptions:
-  - All your spells will deal 10% more damage
+  - Increases all damage you deal to enemies, raising the effectiveness of all attacks
   - All your spells will deal 20% more damage
   - All your spells will deal 30% more damage
   - All your spells will deal 40% more damage
@@ -54,7 +54,11 @@ MonoBehaviour:
   - All your spells will deal 100% more damage
   maxLevel: 5
   abilityIcon: {fileID: -455762694, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames: []
+  variantsDescriptions: []
+  variantsImages: []
   isPassive: 1
+  isBaseSpell: 0
   damageOnLevel:
   - 0.1
   - 0.2

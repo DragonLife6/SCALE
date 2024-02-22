@@ -34,7 +34,10 @@ public class ExplosionItemScript : MonoBehaviour
             if (collider.CompareTag("Enemy"))
             {
                 // нанесення пошкодження ворогам
-                collider.GetComponent<EnemyHealth>().GetDamage(explosionDamage);
+                try
+                {
+                    collider.GetComponent<EnemyHealth>().GetDamage(explosionDamage);
+                } catch { }
             }
         }
 

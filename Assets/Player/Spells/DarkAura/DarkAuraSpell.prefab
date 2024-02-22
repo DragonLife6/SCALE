@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b91b6d042baaa6b4fa702bab327b6326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Dark Aura
+  abilityName: 'Entity of Darkness '
   abilityDescriptions:
-  - Summon dark entity to protect you
+  - 'A powerful aura around you that causes enemies to suffer periodically while
+    they are within its radius '
   - Feed entity with part of your soul
   - Feed entity with part of your soul
   - Feed entity with part of your soul
@@ -54,8 +55,20 @@ MonoBehaviour:
   - Feed entity with part of your soul
   maxLevel: 5
   abilityIcon: {fileID: -1108646401, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames:
+  - Eternal Entity of Darkness
+  - Explosive Darkness
+  - Sheltering Darkness
+  variantsDescriptions:
+  - Same but stronger
+  - Explosions with small delay and bigger damage
+  - Smaller damage but can protect from 3 attacks
+  variantsImages: []
   isPassive: 0
+  isBaseSpell: 0
   circlePrefab: {fileID: 5160803097813503439, guid: 7ea54cd52625e374b96d3211151e3b62, type: 3}
+  protectionPrefab: {fileID: 3906371364376494101, guid: 1ef32c3df977b5d4992e216e095cb643, type: 3}
+  wavePrefab: {fileID: 5627484842076534862, guid: c980c7c4ba6103543aaa8771939b7d29, type: 3}
   backgroundPrefab: {fileID: 8153243437402851390, guid: 359419c9b204c314f8a4e4ac44f88ac4, type: 3}
   damageOnLevel:
   - 5

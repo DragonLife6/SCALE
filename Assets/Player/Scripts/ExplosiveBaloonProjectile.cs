@@ -65,7 +65,10 @@ public class ExplosiveBaloonProjectile : MonoBehaviour
             EnemyHealth enemy = collider.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.GetDamage(damage, critChance, critPower);
+                try
+                {
+                    enemy.GetDamage(damage, critChance, critPower);
+                } catch { }
             }
         }
 

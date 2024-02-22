@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class DirectedShotScriptable : AbilityBaseScript
 {
-    [SerializeField] GameObject projectile;
+    [SerializeField] float maxDistance = 5.0f;
+
+    [SerializeField] GameObject basicProjectile;
+    [SerializeField] GameObject lightningProjectile;
+    [SerializeField] GameObject fireProjectile;
+    GameObject projectile;
     [SerializeField] float[] damageOnLevel;
     [SerializeField] float[] speedOnLevel;
     [SerializeField] float[] delayOnLevel;
@@ -20,6 +25,26 @@ public class DirectedShotScriptable : AbilityBaseScript
     float newDelay = 0f;
     float newSize = 0f;
     int newProjectilesNum = 0;
+
+    public override void OnMaxLevel(int variant)
+    {
+        if (variant == 0)
+        {
+            newDelay /= 1.5f;
+            newDamage *= 1.2f;
+            newProjectilesNum++;
+        }
+        else if (variant == 1)
+        {
+            projectile = fireProjectile;
+            newProjectilesNum = 2; // balance
+        }
+        else
+        {
+            projectile = lightningProjectile;
+            newProjectilesNum = 3; // balance
+        }
+    }
 
     public override void UpdateAbility(int lvl)
     {
@@ -39,10 +64,14 @@ public class DirectedShotScriptable : AbilityBaseScript
             {
                 if (enemies.Count > i)
                 {
-                    DirectedShotProjectile fireball_instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<DirectedShotProjectile>();
-                    fireball_instance.SetParameters(newDamage, newSpeed, newSize, critChanceMultiplier, critDamageMultiplier, enemies[i]);
+                    if (Vector3.Distance(enemies[i].position, transform.position) <= maxDistance)
+                    {
+                        float randomOffset = Random.Range(0f, 0.1f);
+                        DirectedProjectileBase fireball_instance = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<DirectedProjectileBase>();
+                        fireball_instance.SetParameters(newDamage, newSpeed, newSize, critChanceMultiplier, critDamageMultiplier, enemies[i]);
 
-                    yield return new WaitForSeconds(0.05f);
+                        yield return new WaitForSeconds(randomOffset);
+                    }
                 }
             }
 
@@ -54,6 +83,7 @@ public class DirectedShotScriptable : AbilityBaseScript
     {
         enemyManager = GameObject.Find("Enemy_manager").GetComponent<EnemyManager>();
         currentLevel = 1;
+        projectile = basicProjectile;
         UpdateAbility(currentLevel);
 
         StartCoroutine(Shoot());

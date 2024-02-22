@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b75b3ec34436b34cb1963f9ae67b152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Damage protection
+  abilityName: Haunting Barrier
   abilityDescriptions:
-  - You will recieve 5% less damage from enemies
+  - Reduces damage taken by creating an invisible barrier that protects you from
+    enemy attacks
   - You will recieve 10% less damage from enemies
   - You will recieve 15% less damage from enemies
   - You will recieve 20% less damage from enemies
@@ -54,7 +55,11 @@ MonoBehaviour:
   - You will recieve 50% less damage from enemies
   maxLevel: 5
   abilityIcon: {fileID: 1592873258, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames: []
+  variantsDescriptions: []
+  variantsImages: []
   isPassive: 1
+  isBaseSpell: 0
   protectionOnLevel:
   - 0.05
   - 0.1

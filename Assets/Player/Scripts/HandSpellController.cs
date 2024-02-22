@@ -1,9 +1,12 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HandSpellController : AbilityBaseScript
 {
     [SerializeField] GameObject projectile;
+    [SerializeField] GameObject voidProjectile;
+    [SerializeField] GameObject secondProjectile;
     [SerializeField] GameObject handBase;
     [SerializeField] float[] damageOnLevel;
     [SerializeField] float[] sizeOnLevel;
@@ -15,10 +18,36 @@ public class HandSpellController : AbilityBaseScript
 
     int newCount;
     int currentHands = 0;
+    List<GameObject> spawnedHands = new List<GameObject>();
 
     Vector2 target;
     Vector3 targetPosition;
 
+    public override void OnMaxLevel(int variant)
+    {
+        if (variant == 0)
+        {
+            newDelay /= 1.2f;
+            newDamage *= 1.2f;
+            newCount++;
+            SpawnNewHand();
+        }
+        else if (variant == 1)
+        {
+            projectile = secondProjectile;
+        }
+        else
+        {
+            projectile = voidProjectile;
+
+            foreach (var hand in spawnedHands)
+            {
+                Destroy(hand);
+            }
+
+            newCount -= 2;
+        }
+    }
 
     private void SpawnNewHand()
     {
@@ -33,6 +62,7 @@ public class HandSpellController : AbilityBaseScript
             rotation = Quaternion.Euler(0, 180, z);
         GameObject newHand = Instantiate(handBase, transform);
         newHand.transform.rotation = rotation;
+        spawnedHands.Add(newHand);
     }
 
     public override void UpdateAbility(int lvl)
@@ -57,7 +87,7 @@ public class HandSpellController : AbilityBaseScript
                 target = Random.insideUnitCircle * 5;
                 targetPosition = new Vector3(transform.position.x + target.x, transform.position.y + target.y, 0);
 
-                HandProjectileScript hand_instance = Instantiate(projectile, targetPosition, Quaternion.identity).GetComponent<HandProjectileScript>();
+                HandProjectileBase hand_instance = Instantiate(projectile, targetPosition, Quaternion.identity).GetComponent<HandProjectileBase>();
                 hand_instance.SetParameters(newDamage, newSize, critChanceMultiplier, critDamageMultiplier);
                 float y = 0;
                 if (i % 2 == 1)

@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class SoulExplosionProjectile : MonoBehaviour
 {
-    float damage = 0f;
-    float moveSpeed = 7f;
-    float size = 1f;
-
-    float critChance = 0f;
-    float critPower = 1f;
+    protected float damage = 0f;
+    protected float moveSpeed = 7f;
+    protected float size = 1f;
+    protected float critChance = 0f;
+    protected float critPower = 1f;
 
     private void Start()
     {
-        Destroy(gameObject, 15f);
+        Destroy(gameObject, 5f);
     }
 
     private void Update()
     {
+        Movement();
+    }
+
+    public virtual void Movement()
+    {
         Vector3 moveDirection = transform.rotation * Vector3.up;
 
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(moveSpeed * Time.deltaTime * moveDirection, Space.World);
     }
 
     public void SetParameters(float dmg, float spd, float sz, float chance, float power, float newRotation)
@@ -38,15 +42,19 @@ public class SoulExplosionProjectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Нанесення пошкодження гравцю при контакті
         if (other.CompareTag("Enemy"))
         {
-            EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
-            {
-                enemyHealth.GetDamage(damage, critChance, critPower);
-                Destroy(gameObject);
-            }
+            OnTriggerVirtual(other);
+        }
+    }
+
+    public virtual void OnTriggerVirtual(Collider2D other)
+    {
+        if (other.TryGetComponent<EnemyHealth>(out var enemyHealth))
+        {
+            try { enemyHealth.GetDamage(damage, critChance, critPower); } catch { }
+
+            Destroy(gameObject);
         }
     }
 }

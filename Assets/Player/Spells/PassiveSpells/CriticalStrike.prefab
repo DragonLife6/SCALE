@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70f70a8d5a02364b871c098387f2f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Critical Strike
+  abilityName: Eerie Strike
   abilityDescriptions:
-  - Add chance that damage will be multiplied
+  - Increases the chance of critical hits and its damage
   - Add chance that damage will be multiplied
   - Add chance that damage will be multiplied
   - Add chance that damage will be multiplied
@@ -54,7 +54,11 @@ MonoBehaviour:
   - Add chance that damage will be multiplied
   maxLevel: 5
   abilityIcon: {fileID: 1274515189, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames: []
+  variantsDescriptions: []
+  variantsImages: []
   isPassive: 1
+  isBaseSpell: 0
   critChanceOnLevel:
   - 0.05
   - 0.1

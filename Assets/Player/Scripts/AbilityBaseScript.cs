@@ -7,9 +7,17 @@ public abstract class AbilityBaseScript : MonoBehaviour
 {
     [SerializeField] string abilityName;
     [SerializeField] string[] abilityDescriptions;
-    [SerializeField] int maxLevel = 7;
+    [SerializeField] protected int maxLevel = 7;
     [SerializeField] Sprite abilityIcon;
+
+    [Header("Active skill max level data")]
+    [SerializeField] string[] variantsNames;
+    [SerializeField] string[] variantsDescriptions;
+    [SerializeField] Sprite[] variantsImages;
+
     protected int currentLevel;
+
+    [Header("Skill type data and unique data")]
 
     public bool isPassive = false;
 
@@ -21,6 +29,21 @@ public abstract class AbilityBaseScript : MonoBehaviour
     protected float critDamageMultiplier;
 
     [SerializeField] bool isBaseSpell = false;
+
+    public string GetVariantName(int variant)
+    {
+        return variantsNames[variant];
+    }
+
+    public string GetVariantDescription(int variant)
+    {
+        return variantsDescriptions[variant];
+    }
+
+    public Sprite GetVariantImage(int variant)
+    {
+        return variantsImages[variant];
+    }
 
     public virtual void OnMaxLevel(int variant)
     {

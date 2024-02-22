@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf2d19f7f6a9124aaeb66d4adc64c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Movement Speed
+  abilityName: Shadow Walk
   abilityDescriptions:
-  - Movement speed lvl 1
+  - Increases movement speed, helping you move around the world faster and more safely
   - Movement speed lvl 2
   - Movement speed lvl 3
   - Movement speed lvl 4
@@ -54,7 +54,11 @@ MonoBehaviour:
   - Movement speed lvl 6
   maxLevel: 5
   abilityIcon: {fileID: 1784345497, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames: []
+  variantsDescriptions: []
+  variantsImages: []
   isPassive: 1
+  isBaseSpell: 0
   moveSpeedOnLevel:
   - 0.3
   - 0.3

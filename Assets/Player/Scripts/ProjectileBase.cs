@@ -39,7 +39,7 @@ public class ProjectileBase : MonoBehaviour
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.GetDamage(damage, critChance, critPower);
+                try { enemyHealth.GetDamage(damage, critChance, critPower); } catch {}
                 Destroy(gameObject);
             }
         }

@@ -9,8 +9,6 @@ using UnityEngine;
 [System.Serializable]
 public class UpgradesData
 {
-    public int currentPlayerBalance;
-
     public int[] paramsUpgradesCount = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
 }
 
@@ -37,7 +35,6 @@ public class UpdateMenuScript : MonoBehaviour
         else
         {
             upgradesLoadedData = new UpgradesData();
-            upgradesLoadedData.currentPlayerBalance = 0;
             string json = JsonUtility.ToJson(upgradesLoadedData);
             File.WriteAllText(updatesDataPath, json);
 
@@ -83,7 +80,7 @@ public class UpdateMenuScript : MonoBehaviour
 
     private void SaveUpgradesData()
     {
-        upgradesLoadedData.currentPlayerBalance = currentBalance;
+        PlayerPrefs.SetInt("PlayerBalance", currentBalance);
 
         string json = JsonUtility.ToJson(upgradesLoadedData);
         File.WriteAllText(updatesDataPath, json);
@@ -96,15 +93,9 @@ public class UpdateMenuScript : MonoBehaviour
         playerDataPath = Path.Combine(Application.persistentDataPath, "playerData.json");
         updatesDataPath = Path.Combine(Application.persistentDataPath, "upgradesData.json");
 
-        currentBalance = 0;
+        currentBalance = PlayerPrefs.GetInt("PlayerBalance");
         LoadUpgradesData();
-        currentBalance = upgradesLoadedData.currentPlayerBalance;
         UpdateUI();
-    }
-
-    public void PrintData()
-    {
-        Debug.Log(upgradesLoadedData.currentPlayerBalance);
     }
 
     public void ReturnPressed()

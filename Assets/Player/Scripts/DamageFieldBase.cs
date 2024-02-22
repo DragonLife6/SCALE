@@ -64,7 +64,7 @@ public class DamageFieldBase : MonoBehaviour
         EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
         if (enemyHealth != null)
         {
-            enemyHealth.GetDamage(damage, critChance, critPower);
+            try { enemyHealth.GetDamage(damage, critChance, critPower); } catch {}
         }
     }
 }

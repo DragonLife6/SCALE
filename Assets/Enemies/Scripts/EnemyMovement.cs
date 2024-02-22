@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float moveSpeed = 3.0f;
+    public float moveSpeedReduced = 1f;
+
+
     public float damage = 10f;
     public bool deathOnCollision = false;
     public float attackDistance = 1f;
@@ -30,10 +33,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!isPaused)
         {
-            Vector3 moveDirection = (player.position - transform.position); ;
+            Vector3 moveDirection = (player.position - transform.position);
             if (deathOnCollision)
             {
-                transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
+                transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime * moveSpeedReduced);
             }
             else
             {
@@ -41,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
                 if (distanceToPlayer > attackDistance)
                 {
-                    transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime);
+                    transform.Translate(moveDirection.normalized * moveSpeed * Time.deltaTime * moveSpeedReduced);
                     attackCollider.enabled = false;
                 }
                 else
@@ -82,7 +85,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(transform != null)
-            enemyManager.DeleteEnemy(transform);
+        try {
+            if (transform != null && enemyManager != null)
+                enemyManager.DeleteEnemy(transform);
+        } catch {
+            Debug.Log("Error deleting enemy!");
+        }
     }
 }

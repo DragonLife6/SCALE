@@ -44,18 +44,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3477fbc2a5c5b4cb13c7f08678e4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Explosive baloon
+  abilityName: Ball of Horrors
   abilityDescriptions:
-  - test
-  - test
-  - test
-  - test
-  - test
-  - test
+  - 'Creates an explosive ball that deals damage to all within its range after a
+    short delay '
+  - 'Creates an explosive ball that deals damage to all within its range after a
+    short delay '
+  - 'Creates an explosive ball that deals damage to all within its range after a
+    short delay '
+  - 'Creates an explosive ball that deals damage to all within its range after a
+    short delay '
+  - 'Creates an explosive ball that deals damage to all within its range after a
+    short delay '
+  - 'Creates an explosive ball that deals damage to all within its range after a
+    short delay '
   maxLevel: 5
   abilityIcon: {fileID: -137772165, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames:
+  - 'Eternal Ball of Horrors '
+  - 'Spiked Ball of Horrors '
+  - 'Dark Ball of Horrors '
+  variantsDescriptions:
+  - Basic spell but better
+  - Explosive balloon with 8 spikes
+  - Explosive balloon with dark field
+  variantsImages: []
   isPassive: 0
-  isBaseSpell: 1
+  isBaseSpell: 0
   basicProjectile: {fileID: 6013746564971225953, guid: 3220689b37707344ea1d198b354147bd, type: 3}
   secondProjectile: {fileID: 6099768583501336647, guid: 3efd681df6f0bb142bba0a46469ff71f, type: 3}
   thirdProjectile: {fileID: 1275825324778795727, guid: 82367de3b99faa349b32834df759f167, type: 3}

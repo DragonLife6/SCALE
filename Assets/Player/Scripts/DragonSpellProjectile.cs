@@ -6,12 +6,12 @@ using UnityEngine;
 public class DragonSpellProjectile : MonoBehaviour
 {
     float damage = 0f;
-    float moveSpeed = 7f;
+    protected float moveSpeed = 7f;
     float size = 1f;
 
     float critChance = 0f;
     float critPower = 1f;
-    Vector3 moveDirection;
+    protected Vector3 moveDirection;
 
     private void Start()
     {
@@ -19,6 +19,11 @@ public class DragonSpellProjectile : MonoBehaviour
     }
 
     private void Update()
+    {
+        Movement();
+    }
+
+    public virtual void Movement()
     {
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
     }
@@ -45,7 +50,21 @@ public class DragonSpellProjectile : MonoBehaviour
             EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                enemyHealth.GetDamage(damage, critChance, critPower);
+                try { enemyHealth.GetDamage(damage, critChance, critPower); } catch {}
+            }
+        }
+    }
+
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        // Нанесення пошкодження гравцю при контакті
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
+            {
+                try { enemyHealth.GetDamage(damage, critChance, critPower); } catch {}
             }
         }
     }

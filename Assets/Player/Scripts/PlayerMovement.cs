@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerHealth playerHealth;
     public AudioClip footstepsSound;
     private AudioSource audioSource;
+    Vector3 movement;
 
     private void Start()
     {
@@ -21,12 +22,16 @@ public class PlayerMovement : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    public float getMovementAngle()
+    {
+       return -Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg;
+    }
+
     void Update()
     {
         // ќтримуЇмо вх≥д в≥д клав≥атури
         if (playerHealth.isAlive)
         {
-            Vector3 movement;
             float horizontalInput;
             if (keyboardControl)
             {

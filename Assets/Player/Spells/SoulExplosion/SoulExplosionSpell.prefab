@@ -44,21 +44,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4802bec9d68960b4f81410afc3875113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityName: Soul Explosion
+  abilityName: Nightmare Souls
   abilityDescriptions:
-  - Explosion test 1
-  - Explosion test 2
-  - Explosion test 3
-  - Explosion test 4
-  - Explosion test 5
-  - Explosion test 6
-  - Explosion test 7
+  - 'Releases souls in all directions that pass through enemies, dealing damage '
+  - 'Releases souls in all directions that pass through enemies, dealing damage '
+  - 'Releases souls in all directions that pass through enemies, dealing damage '
+  - 'Releases souls in all directions that pass through enemies, dealing damage '
+  - 'Releases souls in all directions that pass through enemies, dealing damage '
+  - 'Releases souls in all directions that pass through enemies, dealing damage '
   maxLevel: 5
   abilityIcon: {fileID: 203473564, guid: a828d04024b881047a4d1b980ecf6a05, type: 3}
+  variantsNames:
+  - 'Eternal Nightmare Souls '
+  - 'Double Nightmare '
+  - 'Nightmare Rifts '
+  variantsDescriptions:
+  - Same but stronger
+  - Souls will split in a half on impact
+  - Creates rifts on the ground
+  variantsImages: []
   isPassive: 0
-  projectilePrefabs:
+  isBaseSpell: 0
+  baseProjectilePrefabs:
   - {fileID: 3184367301834788971, guid: 8d2c919620454704d8809eb4ebbe764a, type: 3}
   - {fileID: 8895607391427949115, guid: 3f97dfaf869239c419184338ac795195, type: 3}
+  ricosheteProjectilePrefabs:
+  - {fileID: 3505871040485853101, guid: a2bc0c5bd79a6bf46ac724b6e553deb4, type: 3}
+  riftProjectilePrefabs:
+  - {fileID: 8523669226449948657, guid: e6afc87b833005345910dc28293851cc, type: 3}
+  - {fileID: 7520465581483799671, guid: 9664e76cffadbfe4592fb2eff0ff3e9a, type: 3}
+  riftCenterPrefab: {fileID: 5549830669431553304, guid: 9bcc4bfc8e3749744984f976862fbac6, type: 3}
   damageOnLevel:
   - 20
   - 22
